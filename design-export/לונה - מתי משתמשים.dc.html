@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0}
+  body{background:#EFEAE2;font-family:'IBM Plex Sans Hebrew',system-ui,sans-serif;-webkit-font-smoothing:antialiased;color:#2E2822}
+  a{color:#A05A3B;text-decoration:none}a:hover{color:#C2714D}
+  @keyframes lunaTyping{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+  @keyframes lunaFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" dir="rtl" style="min-height:100vh;background:radial-gradient(120% 60% at 50% 0%, #F4EFE7 0%, #EFEAE2 55%);padding:0 18px 72px">
+
+  <!-- ===== HERO ===== -->
+  <header style="max-width:520px;margin:0 auto;padding:52px 6px 30px;text-align:center">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#FBF9F4;border:1px solid #E7DED0;border-radius:999px;padding:6px 14px 6px 12px;box-shadow:0 1px 6px rgba(60,45,30,.05)">
+      <span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#C2714D,#A05A3B);display:flex;align-items:center;justify-content:center;color:#FBF9F4;font-size:12px;line-height:1;padding-bottom:1px">☾</span>
+      <span style="font-size:11.5px;font-weight:700;letter-spacing:.16em;color:#A05A3B">L U N A</span>
+    </div>
+    <h1 style="font-family:'Frank Ruhl Libre',serif;font-weight:600;font-size:32px;line-height:1.28;letter-spacing:-.01em;margin:22px 0 0;color:#2E2822">
+      כל מה שיושב לך בראש<br><span style="color:#A05A3B">פשוט שולחים ללונה</span>
+    </h1>
+    <p style="font-size:15.5px;line-height:1.65;color:#7A7062;margin:16px auto 0;max-width:400px;text-wrap:pretty">
+      לא צריך לסדר, לא צריך לנסח ולא צריך לזכור.<br>
+      פשוט שולחים, ולונה כבר תדע מה לעשות — ומתי להחזיר לך את זה.
+    </p>
+  </header>
+
+  <!-- ===== CARDS ===== -->
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;max-width:1120px;margin:14px auto 0;align-items:start">
+
+    <!-- ========== CARD 1 ========== -->
+    <article data-card style="background:#FBF9F4;border:1px solid #EBE2D4;border-radius:26px;box-shadow:0 6px 26px rgba(60,45,30,.07);overflow:hidden;display:flex;flex-direction:column">
+      <div style="padding:22px 22px 4px;display:flex;align-items:center;gap:13px">
+        <span style="flex:none;width:46px;height:46px;border-radius:15px;background:#F3E4D9;display:flex;align-items:center;justify-content:center;font-size:23px">💭</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.09em;color:#C2714D;margin-bottom:2px">כל דבר שעולה לך</div>
+          <div style="font-family:'Frank Ruhl Libre',serif;font-size:19px;font-weight:600;color:#2E2822;line-height:1.2">משהו שאסור לשכוח</div>
+        </div>
+      </div>
+
+      <!-- chat -->
+      <div style="margin:16px 14px 0;background-color:#E8E0D3;background-image:radial-gradient(rgba(120,95,60,.07) 1.1px, transparent 1.1px);background-size:20px 20px;border:1px solid #DCD2C2;border-radius:18px;padding:14px 14px 16px">
+        <div style="display:flex;align-items:center;gap:9px;padding:0 4px 12px;border-bottom:1px solid rgba(160,90,59,.1);margin-bottom:14px">
+          <span style="flex:none;width:32px;height:32px;border-radius:50%;background:linear-gradient(145deg,#C2714D,#A05A3B);display:flex;align-items:center;justify-content:center;color:#FBF9F4;font-size:16px;padding-bottom:2px;box-shadow:0 1px 4px rgba(160,90,59,.3)">☾</span>
+          <div style="line-height:1.25"><div style="font-size:13.5px;font-weight:700;color:#2E2822">לונה</div><div style="font-size:11px;color:#8FB48A;font-weight:600">מקוונת</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <div data-reveal="msg" style="opacity:0;transform:translateY(10px);align-self:flex-start;max-width:82%;background:#DCF8C6;border:1px solid #C9EDAE;border-radius:16px 6px 16px 16px;box-shadow:0 1px 1px rgba(0,0,0,.06);padding:9px 12px 6px">
+            <div style="font-size:14.5px;line-height:1.5;color:#2E2822">חייבת לזכור להזמין דרכון לנועה.</div>
+            <div style="display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:2px"><span style="font-size:10.5px;color:#667781;font-variant-numeric:tabular-nums">14:32</span><span style="font-size:11px;color:#53BDEB">✓✓</span></div>
+          </div>
+          <div data-typing style="opacity:0;align-self:flex-end;background:#FFFFFF;border:1px solid #EDEDED;border-radius:6px 16px 16px 16px;padding:11px 14px;display:flex;gap:4px;box-shadow:0 1px 1px rgba(0,0,0,.06)">
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite .2s"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite .4s"></span>
+          </div>
+          <div data-reveal="reply" style="opacity:0;transform:translateY(10px);align-self:flex-end;max-width:86%;background:#FFFFFF;border:1px solid #EDEDED;border-radius:6px 16px 16px 16px;padding:10px 13px 7px;box-shadow:0 1px 1px rgba(0,0,0,.06)">
+            <div style="font-size:14.5px;line-height:1.55;color:#2E2822;font-weight:600">קיבלתי ❤️</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#57503F;margin-top:5px">מעכשיו זה עליי. אני מכירה את הלו״ז שלך, ואחזיר לך את זה בדיוק כשיהיה הזמן הנכון לטפל בו.</div>
+            <div style="display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:3px"><span style="font-size:10.5px;color:#667781;font-variant-numeric:tabular-nums">14:32</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal="value" style="opacity:0;transform:translateY(10px);padding:16px 24px 24px">
+        <p style="font-size:13.5px;line-height:1.6;color:#8C8175;margin:0;text-wrap:pretty">משימות, רעיונות, דברים לקנות או משהו לבדוק. לא צריך לחשוב איך לנסח — <b style="color:#57503F;font-weight:600">פשוט שולחים.</b></p>
+      </div>
+    </article>
+
+    <!-- ========== CARD 2 ========== -->
+    <article data-card style="background:#FBF9F4;border:1px solid #EBE2D4;border-radius:26px;box-shadow:0 6px 26px rgba(60,45,30,.07);overflow:hidden;display:flex;flex-direction:column">
+      <div style="padding:22px 22px 4px;display:flex;align-items:center;gap:13px">
+        <span style="flex:none;width:46px;height:46px;border-radius:15px;background:#F3E4D9;display:flex;align-items:center;justify-content:center;font-size:23px">📲</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.09em;color:#C2714D;margin-bottom:2px">כל הודעה שלא רוצים לשכוח</div>
+          <div style="font-family:'Frank Ruhl Libre',serif;font-size:19px;font-weight:600;color:#2E2822;line-height:1.2">מעבירים — ולונה מחלצת</div>
+        </div>
+      </div>
+
+      <div style="margin:16px 14px 0;background-color:#E8E0D3;background-image:radial-gradient(rgba(120,95,60,.07) 1.1px, transparent 1.1px);background-size:20px 20px;border:1px solid #DCD2C2;border-radius:18px;padding:14px 14px 16px">
+        <div style="display:flex;align-items:center;gap:9px;padding:0 4px 12px;border-bottom:1px solid rgba(160,90,59,.1);margin-bottom:14px">
+          <span style="flex:none;width:32px;height:32px;border-radius:50%;background:linear-gradient(145deg,#C2714D,#A05A3B);display:flex;align-items:center;justify-content:center;color:#FBF9F4;font-size:16px;padding-bottom:2px;box-shadow:0 1px 4px rgba(160,90,59,.3)">☾</span>
+          <div style="line-height:1.25"><div style="font-size:13.5px;font-weight:700;color:#2E2822">לונה</div><div style="font-size:11px;color:#8FB48A;font-weight:600">מקוונת</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <div data-reveal="msg" style="opacity:0;transform:translateY(10px);align-self:flex-start;max-width:86%;background:#DCF8C6;border:1px solid #C9EDAE;border-radius:16px 6px 16px 16px;box-shadow:0 1px 1px rgba(0,0,0,.06);padding:8px 12px 6px">
+            <div style="display:flex;align-items:center;gap:4px;font-size:10.5px;color:#667781;font-weight:600;padding:2px 0 5px;border-bottom:1px solid rgba(0,0,0,.08);margin-bottom:6px">↪ הועבר · צוות הגן</div>
+            <div style="font-size:14.5px;line-height:1.5;color:#2E2822">מחר כל הילדים מגיעים עם חולצה לבנה ובקבוק מים 🤍</div>
+            <div style="display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:2px"><span style="font-size:10.5px;color:#667781;font-variant-numeric:tabular-nums">07:58</span><span style="font-size:11px;color:#53BDEB">✓✓</span></div>
+          </div>
+          <div data-typing style="opacity:0;align-self:flex-end;background:#FFFFFF;border:1px solid #EDEDED;border-radius:6px 16px 16px 16px;padding:11px 14px;display:flex;gap:4px;box-shadow:0 1px 1px rgba(0,0,0,.06)">
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite .2s"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite .4s"></span>
+          </div>
+          <div data-reveal="reply" style="opacity:0;transform:translateY(10px);align-self:flex-end;max-width:86%;background:#FFFFFF;border:1px solid #EDEDED;border-radius:6px 16px 16px 16px;padding:10px 13px 7px;box-shadow:0 1px 1px rgba(0,0,0,.06)">
+            <div style="font-size:14.5px;line-height:1.55;color:#2E2822;font-weight:600">קיבלתי ❤️</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#57503F;margin-top:5px">חילצתי את מה שחשוב, אין צורך לזכור את זה. אזכיר לך מחר בבוקר, לפני שיוצאים מהבית.</div>
+            <div style="display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:3px"><span style="font-size:10.5px;color:#667781;font-variant-numeric:tabular-nums">07:59</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal="value" style="opacity:0;transform:translateY(10px);padding:16px 24px 24px">
+        <p style="font-size:13.5px;line-height:1.6;color:#8C8175;margin:0;text-wrap:pretty">כל הודעה מהגן, מהחוג, מהמשפחה או מהעבודה. פשוט מעבירים ללונה — <b style="color:#57503F;font-weight:600">היא כבר תבין מה חשוב.</b></p>
+      </div>
+    </article>
+
+    <!-- ========== CARD 3 ========== -->
+    <article data-card style="background:#FBF9F4;border:1px solid #EBE2D4;border-radius:26px;box-shadow:0 6px 26px rgba(60,45,30,.07);overflow:hidden;display:flex;flex-direction:column">
+      <div style="padding:22px 22px 4px;display:flex;align-items:center;gap:13px">
+        <span style="flex:none;width:46px;height:46px;border-radius:15px;background:#F3E4D9;display:flex;align-items:center;justify-content:center;font-size:23px">⏳</span>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.09em;color:#C2714D;margin-bottom:2px">כל דבר שצריך לעקוב אחריו</div>
+          <div style="font-family:'Frank Ruhl Libre',serif;font-size:19px;font-weight:600;color:#2E2822;line-height:1.2">לונה עוקבת במקומך</div>
+        </div>
+      </div>
+
+      <div style="margin:16px 14px 0;background-color:#E8E0D3;background-image:radial-gradient(rgba(120,95,60,.07) 1.1px, transparent 1.1px);background-size:20px 20px;border:1px solid #DCD2C2;border-radius:18px;padding:14px 14px 16px">
+        <div style="display:flex;align-items:center;gap:9px;padding:0 4px 12px;border-bottom:1px solid rgba(160,90,59,.1);margin-bottom:14px">
+          <span style="flex:none;width:32px;height:32px;border-radius:50%;background:linear-gradient(145deg,#C2714D,#A05A3B);display:flex;align-items:center;justify-content:center;color:#FBF9F4;font-size:16px;padding-bottom:2px;box-shadow:0 1px 4px rgba(160,90,59,.3)">☾</span>
+          <div style="line-height:1.25"><div style="font-size:13.5px;font-weight:700;color:#2E2822">לונה</div><div style="font-size:11px;color:#8FB48A;font-weight:600">מקוונת</div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <div data-reveal="msg" style="opacity:0;transform:translateY(10px);align-self:flex-start;max-width:86%;background:#DCF8C6;border:1px solid #C9EDAE;border-radius:16px 6px 16px 16px;box-shadow:0 1px 1px rgba(0,0,0,.06);padding:9px 12px 6px">
+            <div style="font-size:14.5px;line-height:1.5;color:#2E2822">דיברתי עם משרד הבריאות. אמרו לבדוק שוב בעוד 28 יום.</div>
+            <div style="display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:2px"><span style="font-size:10.5px;color:#667781;font-variant-numeric:tabular-nums">11:20</span><span style="font-size:11px;color:#53BDEB">✓✓</span></div>
+          </div>
+          <div data-typing style="opacity:0;align-self:flex-end;background:#FFFFFF;border:1px solid #EDEDED;border-radius:6px 16px 16px 16px;padding:11px 14px;display:flex;gap:4px;box-shadow:0 1px 1px rgba(0,0,0,.06)">
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite .2s"></span>
+            <span style="width:6px;height:6px;border-radius:50%;background:#C2714D;animation:lunaTyping 1.2s infinite .4s"></span>
+          </div>
+          <div data-reveal="reply" style="opacity:0;transform:translateY(10px);align-self:flex-end;max-width:86%;background:#FFFFFF;border:1px solid #EDEDED;border-radius:6px 16px 16px 16px;padding:10px 13px 7px;box-shadow:0 1px 1px rgba(0,0,0,.06)">
+            <div style="font-size:14.5px;line-height:1.55;color:#2E2822;font-weight:600">קיבלתי ❤️</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#57503F;margin-top:5px">אני כבר עוקבת אחרי זה. כשיגיע הזמן לבדוק או לפעול, אחזיר לך את זה בדיוק ברגע הנכון.</div>
+            <div style="display:flex;justify-content:flex-end;align-items:center;gap:3px;margin-top:3px"><span style="font-size:10.5px;color:#667781;font-variant-numeric:tabular-nums">11:21</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-reveal="value" style="opacity:0;transform:translateY(10px);padding:16px 24px 24px">
+        <p style="font-size:13.5px;line-height:1.6;color:#8C8175;margin:0;text-wrap:pretty">מחכים לתשובה? פתחת פנייה? מישהו אמור לחזור אלייך? <b style="color:#57503F;font-weight:600">לונה תדאג שלא תצטרכי לעקוב בעצמך.</b></p>
+      </div>
+    </article>
+
+  </div>
+
+  <p style="text-align:center;font-size:13px;color:#A99B8C;margin:38px auto 0;max-width:360px;line-height:1.6">
+    לא צריך ללמוד מערכת חדשה ולא לנהל רשימות.<br>פשוט שולחים ללונה — והיא כבר יודעת.
+  </p>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:430,&quot;height&quot;:940},&quot;revealAnimation&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;התנהגות&quot;},&quot;typingIndicator&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;התנהגות&quot;}}">
+class Component extends DCLogic {
+  runCard(card) {
+    const animate = this.props.revealAnimation ?? true;
+    const useTyping = this.props.typingIndicator ?? true;
+    const msg = card.querySelector('[data-reveal="msg"]');
+    const typ = card.querySelector('[data-typing]');
+    const rep = card.querySelector('[data-reveal="reply"]');
+    const val = card.querySelector('[data-reveal="value"]');
+    const show = (el) => { if (!el) return; el.style.transition = 'opacity .55s ease, transform .55s ease'; el.style.opacity = '1'; el.style.transform = 'none'; };
+    if (!animate) {
+      [msg, rep, val].forEach(show);
+      if (typ) typ.style.display = 'none';
+      return;
+    }
+    show(msg);
+    if (useTyping && typ) {
+      setTimeout(() => { typ.style.transition = 'opacity .3s ease'; typ.style.opacity = '1'; }, 560);
+      setTimeout(() => { typ.style.opacity = '0'; setTimeout(() => { if (typ) typ.style.display = 'none'; }, 300); show(rep); }, 1350);
+      setTimeout(() => show(val), 1950);
+    } else {
+      if (typ) typ.style.display = 'none';
+      setTimeout(() => show(rep), 650);
+      setTimeout(() => show(val), 1250);
+    }
+  }
+  componentDidMount() {
+    const root = this._root;
+    if (!root) return;
+    const animate = this.props.revealAnimation ?? true;
+    const cards = root.querySelectorAll('[data-card]');
+    cards.forEach((card) => {
+      if (!animate) { this.runCard(card); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => { if (en.isIntersecting) { this.runCard(card); io.unobserve(card); } });
+      }, { threshold: 0.3 });
+      io.observe(card);
+    });
+  }
+  renderVals() {
+    return { rootRef: (el) => { this._root = el; } };
+  }
+}
+</script>
+</body>
+</html>

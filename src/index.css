@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans Hebrew", system-ui, sans-serif;
+  --font-serif: "Frank Ruhl Libre", serif;
+
+  --color-bg: #f0eee9;
+  --color-card: #fbf9f4;
+  --color-ink: #2e2822;
+  --color-muted: #6c6359;
+  --color-muted-soft: #a99b8c;
+  --color-border: #e7ded0;
+  --color-border-strong: #ded2c2;
+  --color-primary: #a05a3b;
+  --color-primary-soft: #c2714d;
+  --color-choice-bg: #f8f1e9;
+  --color-input-placeholder: #b9ac9a;
+  --color-whatsapp-bg: #e5ded3;
+  --color-whatsapp-bubble: #dcf8c6;
+  --color-whatsapp-accent: #7a9e76;
+
+  --animate-fade-slide: fade-slide 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+
+  @keyframes fade-slide {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

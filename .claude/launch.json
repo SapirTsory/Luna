@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "/bin/bash",
+      "runtimeArgs": ["/Users/sapirtsory/Desktop/Luna/Onboarding/dev.sh"],
+      "port": 5183
+    }
+  ]
+}

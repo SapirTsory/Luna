@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#EFEAE2;font-family:'IBM Plex Sans Hebrew',system-ui,sans-serif}
+a{color:#A05A3B}a:hover{color:#C2714D}
+.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}
+.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#2E2822;color:#fff;border-radius:4px;text-decoration:none}
+.dv-tname{font:600 13px/1.2 'IBM Plex Sans Hebrew',sans-serif;color:#2E2822}
+.dv-intro{max-width:760px;font:400 12.5px/1.6 'IBM Plex Sans Hebrew',sans-serif;color:rgba(46,40,34,.65);margin:0 0 24px}
+.dv-opts{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}
+.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}
+.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#2E2822;border-radius:5px;text-decoration:none}
+.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11.5px/1.4 'IBM Plex Sans Hebrew',sans-serif;color:rgba(0,0,0,.6);max-width:390px}
+.dv-card{max-width:100%;background:#FBF9F4;border:1px solid rgba(0,0,0,.09);border-radius:26px;box-shadow:0 2px 14px rgba(60,45,30,.09);overflow:hidden}
+.dv-opt:target .dv-oid{background:#C2714D;color:#fff}
+.dv-next{margin:26px 0 0;font:12px/1.5 'IBM Plex Sans Hebrew',sans-serif;color:rgba(0,0,0,.5)}
+@keyframes lunaPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.06);opacity:.85}}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t6">
+  <div class="dv-thd"><a class="dv-tid" href="#t6">6</a><span class="dv-tname">תחושת שליטה — את רואה הכול, את מחליטה, לונה מבצעת</span></div>
+  <p class="dv-intro" dir="rtl">
+    שליטה = שלושה דברים: <b>רואים הכול במבט</b> (בלי דברים שמוסתרים), <b>אפשר לשנות כל דבר</b> (וטו במגע), <b>יודעים מראש מה יקרה</b> (לונה מציעה, לא קובעת).
+    <a class="dv-oid" href="#6a">6a</a> — המפה המלאה: כל עשר המשימות במסך אחד, שורות דחוסות; לחיצה פותחת כרטיס עם פעולות.
+    <a class="dv-oid" href="#6b">6b</a> — "אם לא תגידי אחרת": כל תוכנית של לונה היא הצעה עם כפתורי שינוי ליד.
+    <a class="dv-oid" href="#6c">6c</a> — אישור הבוקר: לונה מגישה את תוכנית היום עם מתגים — את מדליקה/מכבה ומאשרת בלחיצה אחת.
+  </p>
+  <div class="dv-opts">
+
+    <!-- ============ 6a ============ -->
+    <div class="dv-opt" id="6a">
+      <div class="dv-olabel"><a class="dv-oid" href="#6a">6a</a>המפה המלאה — הכול במסך אחד, בלי הסתרות. שורה שנלחצת נפתחת לכרטיס עם וטו.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="6a המפה המלאה">
+        <div style="display:flex;flex-direction:column;min-height:720px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:26px 24px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:25px;line-height:1.35;color:#2E2822;font-weight:500">הכול פרוס לפנייך.<br>את מחליטה — אני מבצעת.</div>
+          </div>
+
+          <div style="padding:20px 20px 0">
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#A05A3B;padding:0 4px 8px">צריך אותך</div>
+            <div style="background:#F6E9E1;border:1px solid #EBD5C6;border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px">
+              <span style="font-size:13.5px;font-weight:600;color:#2E2822">המסעדה למחר — איזו ואיזו שעה?</span>
+              <span style="flex:none;font-size:11.5px;font-weight:700;color:#FBF9F4;background:#C2714D;border-radius:999px;padding:4px 11px">אענה ←</span>
+            </div>
+          </div>
+
+          <div style="padding:16px 20px 0">
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#57503F;padding:0 4px 8px">בתנועה ומתוזמן</div>
+            <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:14px;overflow:hidden">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid #F0EAE0">
+                <span style="font-size:13px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</span>
+                <span style="flex:none;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#A05A3B"><span style="width:6px;height:6px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span>מנסחת הודעה</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid #F0EAE0">
+                <span style="font-size:13px;font-weight:600;color:#2E2822">כרטיסים לתאילנד</span>
+                <span style="flex:none;display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:#A05A3B"><span style="width:6px;height:6px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span>בודקת מחירים</span>
+              </div>
+
+              <div style="background:#F6EDE6;padding:13px 14px;border-bottom:1px solid #F0EAE0">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:10px">
+                  <span style="font-size:13px;font-weight:700;color:#2E2822">הדגים של רון</span>
+                  <span style="flex:none;font-size:11px;font-weight:700;color:#57503F;background:#FBF9F4;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">אזכיר · 19:00</span>
+                </div>
+                <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:4px">אזכיר לך כשאתם ביחד בבית, ואנסח לך הודעה לרון אם תרצי.</div>
+                <div style="display:flex;gap:6px;margin-top:10px">
+                  <span style="font-size:11.5px;font-weight:700;color:#FBF9F4;background:#2E2822;border-radius:999px;padding:5px 12px">בוצע ✓</span>
+                  <span style="font-size:11.5px;font-weight:700;color:#57503F;background:#FBF9F4;border:1px solid #E2D8C8;border-radius:999px;padding:5px 12px">שני זמן</span>
+                  <span style="font-size:11.5px;font-weight:700;color:#57503F;background:#FBF9F4;border:1px solid #E2D8C8;border-radius:999px;padding:5px 12px">החזירי אליי</span>
+                </div>
+              </div>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid #F0EAE0">
+                <span style="font-size:13px;font-weight:600;color:#2E2822">מספר חשבון לאביבה</span>
+                <span style="flex:none;font-size:11px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">אזכיר · 21:00</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid #F0EAE0">
+                <span style="font-size:13px;font-weight:600;color:#2E2822">הזמנה מאלי אקספרס</span>
+                <span style="flex:none;font-size:11px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">אזכיר · 21:30</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px">
+                <span style="font-size:13px;font-weight:600;color:#2E2822">משרד הבריאות</span>
+                <span style="flex:none;font-size:11px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">מחר · 9:30</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:16px 20px 0">
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#8C8175;padding:0 4px 8px">מחכה לטריגר ובעתיד</div>
+            <div style="background:#F5F1E9;border-radius:14px;overflow:hidden">
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid #ECE5D8">
+                <span style="font-size:13px;font-weight:600;color:#57503F">ההזמנה של מיכל</span>
+                <span style="flex:none;font-size:11px;font-weight:700;color:#8C8175">כשמיכל תענה</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-bottom:1px solid #ECE5D8">
+                <span style="font-size:13px;font-weight:600;color:#57503F">חיתולים</span>
+                <span style="flex:none;font-size:11px;font-weight:700;color:#8C8175">ליד הסופר</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px">
+                <span style="font-size:13px;font-weight:600;color:#57503F">פילטר המזגן</span>
+                <span style="flex:none;font-size:11px;font-weight:700;color:#8C8175">אוגוסט</span>
+              </div>
+            </div>
+            <div style="font-size:11.5px;color:#B4AA9C;padding:10px 4px 0">לחיצה על כל שורה פותחת אותה — עם ״בוצע״, ״שני זמן״ ו״החזירי אליי״.</div>
+          </div>
+
+          <div style="margin-top:auto;padding:20px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">עוד משהו על הראש? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6b ============ -->
+    <div class="dv-opt" id="6b">
+      <div class="dv-olabel"><a class="dv-oid" href="#6b">6b</a>"אם לא תגידי אחרת" — כל תוכנית היא הצעה. כפתורי שינוי על כל כרטיס; לחצו על "אחר" בדגים לראות בחירת זמן.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="6b הצעות">
+        <div style="display:flex;flex-direction:column;min-height:720px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:26px 24px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:25px;line-height:1.4;color:#2E2822;font-weight:500">ככה תכננתי לך את זה.<br>מילה אחת — ואני משנה.</div>
+          </div>
+
+          <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px">
+            <div style="background:#F6E9E1;border:1px solid #EBD5C6;border-radius:16px;padding:15px 17px">
+              <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:5px">ההחלטה היחידה שלך היום</div>
+              <div style="font-size:14.5px;font-weight:600;color:#2E2822">המסעדה למחר — איזו ואיזו שעה?</div>
+              <div style="margin-top:11px;text-align:center;background:#C2714D;color:#FBF9F4;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px" style-hover="background:#A05A3B">אענה בוואטסאפ</div>
+            </div>
+
+            <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px">
+              <div style="font-size:14px;font-weight:600;color:#2E2822">הדגים של רון</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:7px">
+                <span style="font-size:12.5px;color:#57503F">אזכיר ב־<b style="font-variant-numeric:tabular-nums">19:00</b>, כשאתם בבית</span>
+                <span style="flex:none;display:flex;gap:5px">
+                  <span onClick="{{ togglePick6b }}" style="cursor:pointer;font-size:11.5px;font-weight:700;color:{{ pickBtnFg }};background:{{ pickBtnBg }};border:1px solid #E2D8C8;border-radius:999px;padding:4px 11px">אחר</span>
+                  <span style="font-size:11.5px;font-weight:700;color:#8C8175;border:1px solid #E2D8C8;border-radius:999px;padding:4px 11px">בטלי</span>
+                </span>
+              </div>
+              <sc-if value="{{ pick6b }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;gap:6px;margin-top:11px;padding-top:11px;border-top:1px solid #F0EAE0">
+                  <span style="font-size:12px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:5px 12px;font-variant-numeric:tabular-nums">18:00</span>
+                  <span style="font-size:12px;font-weight:700;color:#FBF9F4;background:#C2714D;border-radius:999px;padding:5px 12px;font-variant-numeric:tabular-nums">19:00</span>
+                  <span style="font-size:12px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:5px 12px;font-variant-numeric:tabular-nums">20:00</span>
+                  <span style="font-size:12px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:5px 12px">מחר</span>
+                </div>
+              </sc-if>
+            </div>
+
+            <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px">
+              <div style="font-size:14px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:7px">
+                <span style="font-size:12.5px;color:#57503F">אשלח לך את ההודעה <b>לאישור</b> לפני שהיא יוצאת</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#8C8175;border:1px solid #E2D8C8;border-radius:999px;padding:4px 11px">שלחי בלי אישור</span>
+              </div>
+            </div>
+
+            <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px">
+              <div style="font-size:14px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:7px">
+                <span style="font-size:12.5px;color:#57503F">אזכיר מחר ב־<b style="font-variant-numeric:tabular-nums">9:30</b> עם המספר מוכן</span>
+                <span style="flex:none;display:flex;gap:5px">
+                  <span style="font-size:11.5px;font-weight:700;color:#8C8175;border:1px solid #E2D8C8;border-radius:999px;padding:4px 11px">אחר</span>
+                  <span style="font-size:11.5px;font-weight:700;color:#8C8175;border:1px solid #E2D8C8;border-radius:999px;padding:4px 11px">בטלי</span>
+                </span>
+              </div>
+            </div>
+
+            <div style="background:#F5F1E9;border-radius:16px;padding:14px 16px">
+              <div style="font-size:14px;font-weight:600;color:#57503F">ההזמנה של מיכל</div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:7px">
+                <span style="font-size:12.5px;color:#8C8175">עוקבת. אם מיכל לא תענה עד מחר — אציע לך נודניק עדין</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#8C8175;border:1px solid #DCD2C2;border-radius:999px;padding:4px 11px">נדנדי כבר</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:16px 24px 0;font-size:12px;line-height:1.6;color:#B4AA9C;text-align:center">כל דבר כאן משתנה במילה אחת — במסך או בוואטסאפ.<br>אם לא תגידי אחרת, אני פשוט אעשה.</div>
+
+          <div style="margin-top:auto;padding:20px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">זרקי לי עוד בוואטסאפ ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 6c ============ -->
+    <div class="dv-opt" id="6c">
+      <div class="dv-olabel"><a class="dv-oid" href="#6c">6c</a>אישור הבוקר — לונה מגישה את תוכנית היום, את מכבה מה שלא מתאים ומאשרת בלחיצה. המתגים חיים.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="6c אישור הבוקר">
+        <div style="display:flex;flex-direction:column;min-height:720px;background:#F8F4EC">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:30px 26px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:25px;line-height:1.4;color:#2E2822;font-weight:500">התוכנית שלי להיום.<br>את המנהלת — אני הידיים.</div>
+            <div style="font-size:13px;line-height:1.6;color:#8C8175;margin-top:8px">כבי מה שלא מתאים. השאר רץ ברגע שתאשרי.</div>
+          </div>
+
+          <div style="margin:18px 20px 0;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:18px;overflow:hidden">
+            <sc-for list="{{ plan6c }}" as="p" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid #F0EAE0;opacity:{{ p.rowOp }}">
+                <div onClick="{{ p.onToggle }}" style="cursor:pointer;flex:none;display:flex;align-items:center;justify-content:{{ p.just }};background:{{ p.trackBg }};width:40px;height:24px;border-radius:999px;padding:3px;transition:background .2s">
+                  <div style="width:18px;height:18px;border-radius:50%;background:#FFFEFB;box-shadow:0 1px 3px rgba(60,45,30,.25)"></div>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+                  <div style="font-size:13.5px;font-weight:600;color:#2E2822">{{ p.title }}</div>
+                  <div style="font-size:12px;color:#8C8175">{{ p.note }}</div>
+                </div>
+                <div style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">{{ p.time }}</div>
+              </div>
+            </sc-for>
+            <div style="padding:13px 16px;font-size:12px;color:#B4AA9C">+ המסעדה למחר מחכה לתשובה שלך בוואטסאפ</div>
+          </div>
+
+          <div style="padding:16px 20px 0">
+            <sc-if value="{{ notApproved6c }}" hint-placeholder-val="{{ true }}">
+              <div onClick="{{ approve6c }}" style="cursor:pointer;text-align:center;background:#C2714D;color:#FBF9F4;font-size:15px;font-weight:700;padding:15px 0;border-radius:999px" style-hover="background:#A05A3B">{{ approveLabel }}</div>
+            </sc-if>
+            <sc-if value="{{ approved6c }}" hint-placeholder-val="{{ false }}">
+              <div style="text-align:center;background:#EFE8DC;border:1px solid #E2D8C8;color:#57503F;font-size:14px;font-weight:600;padding:15px 0;border-radius:999px">סגור. רצה על זה ✓ — אפשר לשכוח מזה.</div>
+            </sc-if>
+            <div style="text-align:center;font-size:11.5px;color:#B4AA9C;margin-top:10px">גם בלי אישור — אני ארוץ על זה ב־12:00. האישור רק מרגיע.</div>
+          </div>
+
+          <div style="margin-top:auto;padding:20px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">נזכרת בעוד משהו? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">אפשר להמשיך עם: ״קחי את <a class="dv-oid" href="#5a">5a</a> והוסיפי לכל כרטיס את הווטו של <a class="dv-oid" href="#6b">6b</a>״ · ״שלבי את אישור הבוקר של <a class="dv-oid" href="#6c">6c</a> כמצב פתיחה של <a class="dv-oid" href="#6a">6a</a>״ · ״עצבי את מסך ה׳בוצע׳ — מה קורה כשמסמנים״</p>
+</section>
+
+<section class="dv-turn" id="t5">
+  <div class="dv-thd"><a class="dv-tid" href="#t5">5</a><span class="dv-tname">האיחוד: כרטיס מיקוד + בר לשוניות + מידע מלא על כל משימה — בלי תחושת רשימה</span></div>
+  <p class="dv-intro" dir="rtl">
+    החלוקה: <b>עכשיו</b> = צריך אותך או בתנועה ברגע זה · <b>בהמשך</b> = יש לזה זמן ("מתי אזכיר") · <b>שמור</b> = יש לזה טריגר או שזה רחוק ("למה זה מחכה").
+    כל כרטיס עונה על אותה שאלה: מה קורה איתו עכשיו. שתי תשובות לבעיית "הרשימה המייגעת":
+    <a class="dv-oid" href="#5a">5a</a> — פרקים: שורות קול של לונה בסריף שוברות את הרצף לקבוצות קטנות עם נשימה.
+    <a class="dv-oid" href="#5b">5b</a> — ציר: לשונית "בהמשך" היא ציר זמן עם חוט מחבר — מסע, לא רשימה. הלשוניות חיות בשתיהן.
+  </p>
+  <div class="dv-opts">
+
+    <!-- ============ 5a ============ -->
+    <div class="dv-opt" id="5a">
+      <div class="dv-olabel"><a class="dv-oid" href="#5a">5a</a>פרקים — בין כל קבוצה שורת קול של לונה. הרצף נשבר לנשימות של 2–3 כרטיסים.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="5a פרקים">
+        <div style="display:flex;flex-direction:column;min-height:720px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:28px 24px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:27px;line-height:1.35;color:#2E2822;font-weight:500">הכול אצלי. את פנויה.</div>
+          </div>
+          <div style="display:flex;gap:4px;margin:18px 20px 0;background:#F0EAE0;border-radius:999px;padding:4px">
+            <div onClick="{{ t5a.goNow }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ t5a.nowBg }};color:{{ t5a.nowFg }};box-shadow:{{ t5a.nowSh }}">עכשיו</div>
+            <div onClick="{{ t5a.goLater }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ t5a.laterBg }};color:{{ t5a.laterFg }};box-shadow:{{ t5a.laterSh }}">בהמשך</div>
+            <div onClick="{{ t5a.goSaved }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ t5a.savedBg }};color:{{ t5a.savedFg }};box-shadow:{{ t5a.savedSh }}">שמור</div>
+          </div>
+
+          <sc-if value="{{ t5a.isNow }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:20px 20px 0">
+              <div style="background:#F6E9E1;border:1px solid #EBD5C6;border-radius:18px;padding:16px 18px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:6px">אם יש לך דקה — רק זה</div>
+                <div style="font-size:15px;line-height:1.55;color:#2E2822;font-weight:500">המסעדה למחר: איזו, וסביב איזו שעה?</div>
+                <div style="margin-top:12px;text-align:center;background:#C2714D;color:#FBF9F4;font-size:13.5px;font-weight:600;padding:10px 0;border-radius:999px" style-hover="background:#A05A3B">אענה בוואטסאפ</div>
+              </div>
+              <div style="font-family:'Frank Ruhl Libre',serif;font-size:16.5px;color:#8C8175;padding:22px 4px 12px">וברקע, בלי שתצטרכי —</div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                  <div>
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">מנסחת הודעת תיאום — תקבלי לאישור.</div>
+                  </div>
+                  <span style="flex:none;align-self:flex-start;display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:#A05A3B;background:#F6E9E1;border-radius:999px;padding:3px 9px"><span style="width:6px;height:6px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span>עובדת</span>
+                </div>
+                <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                  <div>
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">כרטיסים לתאילנד</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">בדיקת מחירים רצה — אעדכן כשיהיה שווה להסתכל.</div>
+                  </div>
+                  <span style="flex:none;align-self:flex-start;display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;color:#A05A3B;background:#F6E9E1;border-radius:999px;padding:3px 9px"><span style="width:6px;height:6px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span>עובדת</span>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ t5a.isLater }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:8px 20px 0">
+              <div style="font-family:'Frank Ruhl Libre',serif;font-size:16.5px;color:#8C8175;padding:14px 4px 12px">הערב, כשתהיי בבית —</div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                  <div>
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">להגיד לרון להכין את הדגים</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">אזכיר כשאתם ביחד בבית.</div>
+                  </div>
+                  <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">19:00</span>
+                </div>
+                <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                  <div>
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">מספר חשבון לאביבה</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">שלחי לי את המספר — אכין הודעה מוכנה.</div>
+                  </div>
+                  <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">21:00</span>
+                </div>
+                <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                  <div>
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">הזמנה מאלי אקספרס</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">תזכורת רכה על הספה.</div>
+                  </div>
+                  <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">21:30</span>
+                </div>
+              </div>
+              <div style="font-family:'Frank Ruhl Libre',serif;font-size:16.5px;color:#8C8175;padding:22px 4px 12px">ומחר בבוקר, רק אחד —</div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">המספר כבר אצלי: 08-6241010.</div>
+                </div>
+                <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">9:30</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ t5a.isSaved }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:8px 20px 0">
+              <div style="font-family:'Frank Ruhl Libre',serif;font-size:16.5px;color:#8C8175;padding:14px 4px 12px">מחכים לרגע הנכון — אני אזהה אותו:</div>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="background:#F5F1E9;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                  <div>
+                    <div style="font-size:14px;font-weight:600;color:#57503F">ההזמנה של מיכל לבית החולים</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">ברגע שמיכל תענה — אקפיץ לך.</div>
+                  </div>
+                  <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#8C8175;background:#FBF9F4;border:1px solid #E7E0D4;border-radius:999px;padding:3px 9px">כשמיכל תענה</span>
+                </div>
+                <div style="background:#F5F1E9;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                  <div>
+                    <div style="font-size:14px;font-weight:600;color:#57503F">חיתולים</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">ברשימת הקניות שלך.</div>
+                  </div>
+                  <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#8C8175;background:#FBF9F4;border:1px solid #E7E0D4;border-radius:999px;padding:3px 9px">ליד הסופר</span>
+                </div>
+              </div>
+              <div style="font-family:'Frank Ruhl Libre',serif;font-size:16.5px;color:#8C8175;padding:22px 4px 12px">ורחוק מכאן, שמור —</div>
+              <div style="border:1px dashed #D5CBBA;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14px;font-weight:600;color:#8C8175">לנקות את הפילטר של המזגן</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#B4AA9C;margin-top:3px">אזכיר בתחילת אוגוסט, לפני שיא הקיץ.</div>
+                </div>
+                <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#B4AA9C;background:#FBF9F4;border:1px solid #E7E0D4;border-radius:999px;padding:3px 9px">אוגוסט</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="margin-top:auto;padding:22px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">עוד משהו על הראש? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 5b ============ -->
+    <div class="dv-opt" id="5b">
+      <div class="dv-olabel"><a class="dv-oid" href="#5b">5b</a>הציר — "בהמשך" הוא חוט זמן עם תחנות; "שמור" הוא שני אזורים רכים. אותם כרטיסים, מקצב אחר.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="5b הציר">
+        <div style="display:flex;flex-direction:column;min-height:720px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:28px 24px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:27px;line-height:1.35;color:#2E2822;font-weight:500">שקט. אני מחזיקה את זה.</div>
+          </div>
+          <div style="display:flex;gap:4px;margin:18px 20px 0;background:#F0EAE0;border-radius:999px;padding:4px">
+            <div onClick="{{ t5b.goNow }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ t5b.nowBg }};color:{{ t5b.nowFg }};box-shadow:{{ t5b.nowSh }}">עכשיו</div>
+            <div onClick="{{ t5b.goLater }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ t5b.laterBg }};color:{{ t5b.laterFg }};box-shadow:{{ t5b.laterSh }}">בהמשך</div>
+            <div onClick="{{ t5b.goSaved }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ t5b.savedBg }};color:{{ t5b.savedFg }};box-shadow:{{ t5b.savedSh }}">שמור</div>
+          </div>
+
+          <sc-if value="{{ t5b.isNow }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:20px 20px 0">
+              <div style="background:#F6E9E1;border:1px solid #EBD5C6;border-radius:18px;padding:16px 18px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:6px">אם יש לך דקה — רק זה</div>
+                <div style="font-size:15px;line-height:1.55;color:#2E2822;font-weight:500">המסעדה למחר: איזו, וסביב איזו שעה?</div>
+                <div style="margin-top:12px;text-align:center;background:#C2714D;color:#FBF9F4;font-size:13.5px;font-weight:600;padding:10px 0;border-radius:999px" style-hover="background:#A05A3B">אענה בוואטסאפ</div>
+              </div>
+              <div style="margin-top:14px;background:#F3F0E9;border-radius:18px;padding:15px 16px">
+                <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px">
+                  <span style="width:8px;height:8px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span>
+                  <span style="font-size:12.5px;font-weight:700;color:#2E2822">אני בתנועה בשבילך</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <div style="background:#FFFEFB;border-radius:13px;padding:12px 14px">
+                    <div style="font-size:13.5px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</div>
+                    <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">מנסחת הודעת תיאום — תקבלי לאישור.</div>
+                  </div>
+                  <div style="background:#FFFEFB;border-radius:13px;padding:12px 14px">
+                    <div style="font-size:13.5px;font-weight:600;color:#2E2822">כרטיסים לתאילנד</div>
+                    <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">בדיקת מחירים רצה ברקע.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ t5b.isLater }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:22px 20px 0">
+              <div style="font-size:12.5px;color:#8C8175;padding:0 4px 16px">כל תחנה תגיע אלייך לבד — אין מה לזכור.</div>
+              <div style="position:relative;padding-right:26px">
+                <div style="position:absolute;right:8px;top:8px;bottom:8px;width:2px;background:#E7DECF;border-radius:2px"></div>
+                <div style="position:relative;margin-bottom:14px">
+                  <div style="position:absolute;right:-26px;top:14px;width:12px;height:12px;border-radius:50%;background:#C2714D;border:3px solid #FBF9F4"></div>
+                  <div style="font-size:11.5px;font-weight:700;color:#A05A3B;padding:0 2px 6px;font-variant-numeric:tabular-nums">היום · 19:00</div>
+                  <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 15px">
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">להגיד לרון להכין את הדגים</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:2px">אזכיר כשאתם ביחד בבית.</div>
+                  </div>
+                </div>
+                <div style="position:relative;margin-bottom:14px">
+                  <div style="position:absolute;right:-26px;top:14px;width:12px;height:12px;border-radius:50%;background:#2E2822;border:3px solid #FBF9F4"></div>
+                  <div style="font-size:11.5px;font-weight:700;color:#57503F;padding:0 2px 6px;font-variant-numeric:tabular-nums">היום · 21:00</div>
+                  <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 15px">
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">מספר חשבון לאביבה</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:2px">שלחי לי את המספר — אכין הודעה מוכנה.</div>
+                  </div>
+                </div>
+                <div style="position:relative;margin-bottom:14px">
+                  <div style="position:absolute;right:-26px;top:14px;width:12px;height:12px;border-radius:50%;background:#2E2822;border:3px solid #FBF9F4"></div>
+                  <div style="font-size:11.5px;font-weight:700;color:#57503F;padding:0 2px 6px;font-variant-numeric:tabular-nums">היום · 21:30</div>
+                  <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 15px">
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">הזמנה מאלי אקספרס</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:2px">תזכורת רכה על הספה.</div>
+                  </div>
+                </div>
+                <div style="position:relative">
+                  <div style="position:absolute;right:-26px;top:14px;width:12px;height:12px;border-radius:50%;background:#FBF9F4;border:2.5px solid #B4AA9C"></div>
+                  <div style="font-size:11.5px;font-weight:700;color:#8C8175;padding:0 2px 6px;font-variant-numeric:tabular-nums">מחר · 9:30</div>
+                  <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 15px">
+                    <div style="font-size:14px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</div>
+                    <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:2px">המספר כבר אצלי: 08-6241010.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ t5b.isSaved }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:12px">
+              <div style="background:#F3F0E9;border-radius:18px;padding:15px 16px">
+                <div style="font-size:12.5px;font-weight:700;color:#2E2822;margin-bottom:2px">מחכה לטריגר</div>
+                <div style="font-size:11.5px;color:#B4AA9C;margin-bottom:10px">אני אזהה את הרגע — לא את</div>
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <div style="background:#FFFEFB;border-radius:13px;padding:12px 14px;display:flex;justify-content:space-between;gap:10px">
+                    <div>
+                      <div style="font-size:13.5px;font-weight:600;color:#2E2822">ההזמנה של מיכל</div>
+                      <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">ברגע שתענה — אקפיץ לך.</div>
+                    </div>
+                    <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#8C8175;background:#F5F1E9;border-radius:999px;padding:3px 9px">כשמיכל תענה</span>
+                  </div>
+                  <div style="background:#FFFEFB;border-radius:13px;padding:12px 14px;display:flex;justify-content:space-between;gap:10px">
+                    <div>
+                      <div style="font-size:13.5px;font-weight:600;color:#2E2822">חיתולים</div>
+                      <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">ברשימת הקניות שלך.</div>
+                    </div>
+                    <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#8C8175;background:#F5F1E9;border-radius:999px;padding:3px 9px">ליד הסופר</span>
+                  </div>
+                </div>
+              </div>
+              <div style="border:1px dashed #D5CBBA;border-radius:18px;padding:15px 16px">
+                <div style="font-size:12.5px;font-weight:700;color:#8C8175;margin-bottom:2px">רחוק מכאן</div>
+                <div style="font-size:11.5px;color:#B4AA9C;margin-bottom:10px">שמור אצלי — יעלה בדיוק בזמן</div>
+                <div style="background:#F5F1E9;border-radius:13px;padding:12px 14px;display:flex;justify-content:space-between;gap:10px">
+                  <div style="font-size:13.5px;font-weight:600;color:#57503F">לנקות את הפילטר של המזגן</div>
+                  <span style="flex:none;font-size:11.5px;font-weight:700;color:#B4AA9C">אוגוסט</span>
+                </div>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="margin-top:auto;padding:22px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">זרקי לי עוד בוואטסאפ ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">אפשר להמשיך עם: ״<a class="dv-oid" href="#5a">5a</a> עם הציר של <a class="dv-oid" href="#5b">5b</a> בלשונית בהמשך״ · ״הוסיפי בדג׳ עדין על הלשונית עכשיו כשמשהו צריך אותי״ · ״תראי מצב שבו הכול סגור — מה רואים אז״</p>
+</section>
+
+<section class="dv-turn" id="t4">
+  <div class="dv-thd"><a class="dv-tid" href="#t4">4</a><span class="dv-tname">גובה קבוע + אפס שיפוטיות — המסך לא גדל עם כמות המשימות</span></div>
+  <p class="dv-intro" dir="rtl">
+    שני עקרונות חדשים: (1) <b>דחיסה</b> — כל קבוצה תופסת שורה אחת, לא משנה כמה יש בה; (2) <b>שפה בלי חוב</b> — אין "10 פתוחים", אין מונים אדומים. הכמות נבלעת בניסוח של לונה.
+    <a class="dv-oid" href="#4a">4a</a> — האופק: כרטיס מיקוד אחד + שורות אופק שנפתחות אחת בכל פעם.
+    <a class="dv-oid" href="#4b">4b</a> — מגירות: שלוש לשוניות (עכשיו / בהמשך / שמור) — אף פעם לא רואים יותר מכמה כרטיסים.
+    <a class="dv-oid" href="#4c">4c</a> — פסקה: לונה מסכמת הכול בפרוזה — הדחיסה הכי אנושית שיש.
+  </p>
+  <div class="dv-opts">
+
+    <!-- ============ 4a ============ -->
+    <div class="dv-opt" id="4a">
+      <div class="dv-olabel"><a class="dv-oid" href="#4a">4a</a>האופק — מיקוד אחד למעלה, וכל השאר שורה שקטה לכל אופק זמן. לחיצה פותחת אחת בכל פעם.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="4a האופק">
+        <div style="display:flex;flex-direction:column;min-height:700px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:34px 24px 8px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:28px;line-height:1.35;color:#2E2822;font-weight:500;text-wrap:pretty">הכול אצלי.<br>את פנויה.</div>
+          </div>
+          <div style="margin:16px 20px 0;background:#F6E9E1;border:1px solid #EBD5C6;border-radius:18px;padding:16px 18px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:6px">אם יש לך דקה — רק זה</div>
+            <div style="font-size:15px;line-height:1.55;color:#2E2822;font-weight:500">המסעדה למחר: איזו, וסביב איזו שעה?</div>
+            <div style="margin-top:12px;text-align:center;background:#C2714D;color:#FBF9F4;font-size:13.5px;font-weight:600;padding:10px 0;border-radius:999px" style-hover="background:#A05A3B">אענה בוואטסאפ</div>
+          </div>
+          <div style="padding:28px 20px 10px">
+            <div style="font-size:12px;font-weight:700;letter-spacing:.06em;color:#B4AA9C;margin-bottom:6px;padding-right:4px">האופק שלך</div>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ horizons }}" as="g" hint-placeholder-count="5">
+                <div style="border-bottom:1px solid #F0EAE0">
+                  <div onClick="{{ g.onToggle }}" style="cursor:pointer;display:flex;align-items:center;gap:12px;padding:15px 4px">
+                    <div style="flex:none;width:9px;height:9px;border-radius:50%;background:{{ g.dotBg }};border:{{ g.dotBorder }}"></div>
+                    <div style="flex:1;display:flex;flex-direction:column;gap:1px">
+                      <div style="font-size:14.5px;font-weight:600;color:#2E2822">{{ g.label }}</div>
+                      <div style="font-size:12.5px;line-height:1.5;color:#8C8175">{{ g.summary }}</div>
+                    </div>
+                    <div style="flex:none;font-size:13px;color:#C9BFAF;transform:rotate({{ g.chev }}deg);transition:transform .2s">‹</div>
+                  </div>
+                  <sc-if value="{{ g.open }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;flex-direction:column;gap:8px;padding:0 25px 16px">
+                      <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="2">
+                        <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:13px;padding:11px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                          <span style="font-size:13px;font-weight:600;color:#2E2822">{{ it.t }}</span>
+                          <span style="flex:none;font-size:11.5px;color:#8C8175">{{ it.n }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="margin-top:auto;padding:20px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">עוד משהו על הראש? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 4b ============ -->
+    <div class="dv-opt" id="4b">
+      <div class="dv-olabel"><a class="dv-oid" href="#4b">4b</a>מגירות — עכשיו / בהמשך / שמור. המסך אף פעם לא מציג יותר מכמה כרטיסים; הכמות פשוט לא נראית.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="4b מגירות">
+        <div style="display:flex;flex-direction:column;min-height:700px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:30px 24px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:27px;line-height:1.35;color:#2E2822;font-weight:500">שקט. אני מחזיקה את זה.</div>
+          </div>
+          <div style="display:flex;gap:4px;margin:20px 20px 0;background:#F0EAE0;border-radius:999px;padding:4px">
+            <div onClick="{{ goNow }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ tabNowBg }};color:{{ tabNowFg }};box-shadow:{{ tabNowSh }}">עכשיו</div>
+            <div onClick="{{ goLater }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ tabLaterBg }};color:{{ tabLaterFg }};box-shadow:{{ tabLaterSh }}">בהמשך</div>
+            <div onClick="{{ goSaved }}" style="cursor:pointer;flex:1;text-align:center;font-size:13px;font-weight:600;padding:9px 0;border-radius:999px;background:{{ tabSavedBg }};color:{{ tabSavedFg }};box-shadow:{{ tabSavedSh }}">שמור</div>
+          </div>
+
+          <sc-if value="{{ isNow }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px">
+              <div style="background:#F6E9E1;border:1px solid #EBD5C6;border-radius:16px;padding:15px 17px">
+                <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:5px">מילה ממך ואני סוגרת</div>
+                <div style="font-size:14.5px;font-weight:600;color:#2E2822">המסעדה למחר — איזו ולאיזו שעה?</div>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px">
+                <div style="display:flex;align-items:center;gap:7px"><span style="width:7px;height:7px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span><span style="font-size:14px;font-weight:600;color:#2E2822">מנסחת הודעה ליותם וקרן</span></div>
+                <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">תיאום הראיון — תקבלי לאישור.</div>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px">
+                <div style="display:flex;align-items:center;gap:7px"><span style="width:7px;height:7px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span><span style="font-size:14px;font-weight:600;color:#2E2822">בודקת מחירים לתאילנד</span></div>
+                <div style="font-size:12.5px;line-height:1.5;color:#8C8175;margin-top:3px">רץ ברקע — אעדכן כשיהיה שווה להסתכל.</div>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isLater }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12.5px;color:#8C8175;padding:0 4px 2px">כל אחד יגיע אלייך בזמן שלו — אין מה לזכור.</div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:14px;font-weight:600;color:#2E2822">הדגים של רון</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">היום 19:00</span>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:14px;font-weight:600;color:#2E2822">מספר חשבון לאביבה</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">היום 21:00</span>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:14px;font-weight:600;color:#2E2822">הזמנה מאלי אקספרס</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">היום 21:30</span>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:14px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">מחר 9:30</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isSaved }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:20px 20px 0;display:flex;flex-direction:column;gap:10px">
+              <div style="font-size:12.5px;color:#8C8175;padding:0 4px 2px">לא דחוף, לא נעלם. אני אביא כל דבר כשיגיע הזמן שלו.</div>
+              <div style="background:#F5F1E9;border-radius:16px;padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:14px;font-weight:600;color:#57503F">ההזמנה של מיכל</span>
+                <span style="flex:none;font-size:11.5px;color:#8C8175">כשמיכל תענה</span>
+              </div>
+              <div style="background:#F5F1E9;border-radius:16px;padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:14px;font-weight:600;color:#57503F">חיתולים</span>
+                <span style="flex:none;font-size:11.5px;color:#8C8175">ליד הסופר</span>
+              </div>
+              <div style="background:#F5F1E9;border-radius:16px;padding:13px 16px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:14px;font-weight:600;color:#57503F">פילטר המזגן</span>
+                <span style="flex:none;font-size:11.5px;color:#8C8175">אוגוסט</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <div style="margin-top:auto;padding:20px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">זרקי לי עוד בוואטסאפ ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 4c ============ -->
+    <div class="dv-opt" id="4c">
+      <div class="dv-olabel"><a class="dv-oid" href="#4c">4c</a>הפסקה — לונה דוחסת הכול לפרוזה חמה. עשר משימות או שלושים — זו תמיד פסקה אחת.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="4c פסקה">
+        <div style="display:flex;flex-direction:column;min-height:700px;background:#F8F4EC">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:36px 26px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:24px;line-height:1.5;color:#2E2822;font-weight:500;text-wrap:pretty">בוקר טוב, גל.<br>את פנויה עד הערב.</div>
+          </div>
+          <div style="padding:24px 26px 0;font-size:15.5px;line-height:2.05;color:#57503F">
+            הדבר היחיד ששווה דקה עכשיו הוא
+            <span style="background:#F6E9E1;border-radius:8px;padding:2px 8px;font-weight:600;color:#A05A3B;white-space:nowrap">המסעדה למחר</span>
+            — מילה ממך ואני סוגרת מקום.
+            <br><br>
+            הערב אזכיר לך את
+            <span style="background:#EDE6D9;border-radius:8px;padding:2px 8px;font-weight:600;color:#2E2822;white-space:nowrap">הדגים של רון</span>,
+            את
+            <span style="background:#EDE6D9;border-radius:8px;padding:2px 8px;font-weight:600;color:#2E2822;white-space:nowrap">אביבה</span>
+            ואת
+            <span style="background:#EDE6D9;border-radius:8px;padding:2px 8px;font-weight:600;color:#2E2822;white-space:nowrap">אלי אקספרס</span>
+            — כל אחד בזמן שלו. מחר בבוקר נתפוס את
+            <span style="background:#EDE6D9;border-radius:8px;padding:2px 8px;font-weight:600;color:#2E2822;white-space:nowrap">משרד הבריאות</span>;
+            המספר כבר אצלי.
+            <br><br>
+            את השאר אני מקדמת או שומרת —
+            <span style="color:#8C8175">יותם וקרן, תאילנד, מיכל, החיתולים, ואפילו פילטר המזגן באוגוסט</span>
+            — ואביא לך כל אחד רק ברגע שיהיה בו צורך.
+          </div>
+          <div style="padding:26px 26px 0;font-family:'Frank Ruhl Libre',serif;font-size:16px;color:#8C8175">— לונה</div>
+          <div style="margin-top:auto;padding:24px 20px 22px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="text-align:center;background:#C2714D;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:13px 0;border-radius:999px" style-hover="background:#A05A3B">לענות על המסעדה בוואטסאפ</div>
+              <div style="text-align:center;background:transparent;border:1px solid #D5CBBA;color:#57503F;font-size:14px;font-weight:600;padding:12px 0;border-radius:999px" style-hover="background:#F0EAE0">זרקי לי עוד משהו ←</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">אפשר להמשיך עם: ״<a class="dv-oid" href="#4a">4a</a> עם הפסקה של <a class="dv-oid" href="#4c">4c</a> ככותרת״ · ״תראי את <a class="dv-oid" href="#4b">4b</a> עם 30 משימות — להוכיח שזה לא מתפוצץ״ · ״נסחי שלוש גרסאות טון לכותרת הראשית״</p>
+</section>
+
+<section class="dv-turn" id="t3">
+  <div class="dv-thd"><a class="dv-tid" href="#t3">3</a><span class="dv-tname">כל הכרטיסים הפתוחים — קטגוריות שעונות על "מה קורה, מה יקרה, מה שמור"</span></div>
+  <p class="dv-intro" dir="rtl">
+    הפעם הכול גלוי — כל משימה היא כרטיס, והקטגוריות עושות את העבודה. הוספתי גם משימת עתיד (פילטר המזגן).
+    <a class="dv-oid" href="#3a">3a</a> — ציר זמן: עכשיו → היום → מחר → בהמשך → בעתיד.
+    <a class="dv-oid" href="#3b">3b</a> — מדפים: שורות אופקיות לפי סטטוס, גלילה הצידה בתוך כל מדף.
+    <a class="dv-oid" href="#3c">3c</a> — שלושה אזורים: "קורה עכשיו" (פועם) / "יקרה בזמן הנכון" (עם תאריך) / "שמור לעתיד" (מעומעם, לא הולך לאיבוד).
+  </p>
+  <div class="dv-opts">
+
+    <!-- ============ 3a ============ -->
+    <div class="dv-opt" id="3a">
+      <div class="dv-olabel"><a class="dv-oid" href="#3a">3a</a>ציר זמן — כל כרטיס יושב מתי שהוא באמת יקרה. סריקה אחת מלמעלה למטה עונה על הכול.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="3a ציר זמן">
+        <div style="display:flex;flex-direction:column;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:30px 24px 6px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:27px;line-height:1.35;color:#2E2822;font-weight:500">10 דברים פתוחים.<br>כולם במקום הנכון.</div>
+          </div>
+
+          <div style="padding:18px 24px 0">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="width:9px;height:9px;border-radius:50%;background:#C2714D;animation:lunaPulse 2.4s ease-in-out infinite;display:inline-block"></span>
+              <span style="font-size:12.5px;font-weight:700;color:#A05A3B">עכשיו</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="background:#F6E9E1;border:1px solid #EBD5C6;border-radius:16px;padding:14px 16px">
+                <div style="font-size:14.5px;font-weight:600;color:#2E2822">מסעדה למחר — צריך אותך</div>
+                <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">איזו מסעדה ולאיזו שעה? עונים לי בוואטסאפ ואני סוגרת.</div>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px">
+                <div style="font-size:14.5px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</div>
+                <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">אני מנסחת עכשיו הודעת תיאום — תקבלי לאישור.</div>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px">
+                <div style="font-size:14.5px;font-weight:600;color:#2E2822">כרטיסים לתאילנד</div>
+                <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">בדיקת מחירים רצה אצלי ברקע.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:22px 24px 0">
+            <div style="font-size:12.5px;font-weight:700;color:#2E2822;margin-bottom:10px">היום בערב</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">להגיד לרון להכין את הדגים</div>
+                  <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">אזכיר כשאתם בבית.</div>
+                </div>
+                <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">19:00</span>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">מספר חשבון לאביבה</div>
+                  <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">שלחי לי את המספר ואכין הודעה מוכנה.</div>
+                </div>
+                <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">21:00</span>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">הזמנה מאלי אקספרס</div>
+                  <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">תזכורת רכה על הספה.</div>
+                </div>
+                <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">21:30</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:22px 24px 0">
+            <div style="font-size:12.5px;font-weight:700;color:#2E2822;margin-bottom:10px">מחר</div>
+            <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+              <div>
+                <div style="font-size:14.5px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</div>
+                <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">המספר כבר אצלי: 08-6241010.</div>
+              </div>
+              <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#57503F;background:#F0EAE0;border-radius:999px;padding:3px 9px;font-variant-numeric:tabular-nums">9:30</span>
+            </div>
+          </div>
+
+          <div style="padding:22px 24px 0">
+            <div style="font-size:12.5px;font-weight:700;color:#2E2822;margin-bottom:10px">ברגע הנכון</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">ההזמנה של מיכל לבית החולים</div>
+                  <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">ברגע שמיכל תענה — אקפיץ לך.</div>
+                </div>
+                <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#8C8175;background:#F5F1E9;border:1px solid #E7E0D4;border-radius:999px;padding:3px 9px">כשמיכל תענה</span>
+              </div>
+              <div style="background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+                <div>
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">חיתולים</div>
+                  <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">ברשימת הקניות.</div>
+                </div>
+                <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#8C8175;background:#F5F1E9;border:1px solid #E7E0D4;border-radius:999px;padding:3px 9px">ליד הסופר</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:22px 24px 28px">
+            <div style="font-size:12.5px;font-weight:700;color:#B4AA9C;margin-bottom:10px">בעתיד — שמור אצלי</div>
+            <div style="background:#F5F1E9;border:1px dashed #D5CBBA;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;gap:10px">
+              <div>
+                <div style="font-size:14.5px;font-weight:600;color:#57503F">לנקות את הפילטר של המזגן</div>
+                <div style="font-size:12.5px;line-height:1.55;color:#8C8175;margin-top:3px">אזכיר בתחילת אוגוסט, לפני שיא הקיץ.</div>
+              </div>
+              <span style="flex:none;align-self:flex-start;font-size:11.5px;font-weight:700;color:#8C8175;background:#FBF9F4;border:1px solid #E7E0D4;border-radius:999px;padding:3px 9px">עוד 3 שבועות</span>
+            </div>
+          </div>
+
+          <div style="padding:0 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">עוד משהו על הראש? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 3b ============ -->
+    <div class="dv-opt" id="3b">
+      <div class="dv-olabel"><a class="dv-oid" href="#3b">3b</a>מדפים — כל סטטוס הוא מדף אופקי עם כרטיסים. רואים הכול במבט, גוללים הצידה לעומק.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="3b מדפים">
+        <div style="display:flex;flex-direction:column;background:#F5F1E9">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:30px 24px 4px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:27px;line-height:1.35;color:#2E2822;font-weight:500">הכול פרוס. כלום לא מרחף.</div>
+          </div>
+
+          <div style="padding:20px 0 0">
+            <div style="display:flex;align-items:baseline;gap:8px;padding:0 24px;margin-bottom:10px">
+              <span style="font-size:13px;font-weight:700;color:#A05A3B">צריך אותך</span>
+              <span style="font-size:12px;color:#C2714D;font-variant-numeric:tabular-nums">1</span>
+            </div>
+            <div style="padding:0 24px">
+              <div style="background:#C2714D;border-radius:18px;padding:16px 18px;color:#FBF9F4">
+                <div style="font-size:15px;font-weight:600">מסעדה למחר</div>
+                <div style="font-size:12.5px;line-height:1.55;opacity:.85;margin-top:3px">איזו ולאיזו שעה? תשובה אחת ואני סוגרת מקום.</div>
+                <div style="margin-top:12px;text-align:center;background:#FBF9F4;color:#A05A3B;font-size:13px;font-weight:700;padding:9px 0;border-radius:999px">אענה בוואטסאפ</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:24px 0 0">
+            <div style="display:flex;align-items:baseline;gap:8px;padding:0 24px;margin-bottom:10px">
+              <span style="width:8px;height:8px;border-radius:50%;background:#C2714D;display:inline-block;animation:lunaPulse 2.4s ease-in-out infinite"></span>
+              <span style="font-size:13px;font-weight:700;color:#2E2822">אני עושה עכשיו</span>
+              <span style="font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums">2</span>
+            </div>
+            <div style="display:flex;gap:10px;overflow-x:auto;padding:2px 24px 8px">
+              <div style="flex:none;width:200px;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 15px">
+                <div style="font-size:13.5px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</div>
+                <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:4px">מנסחת הודעת תיאום — תקבלי לאישור.</div>
+              </div>
+              <div style="flex:none;width:200px;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 15px">
+                <div style="font-size:13.5px;font-weight:600;color:#2E2822">כרטיסים לתאילנד</div>
+                <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:4px">בדיקת מחירים רצה ברקע.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:20px 0 0">
+            <div style="display:flex;align-items:baseline;gap:8px;padding:0 24px;margin-bottom:10px">
+              <span style="font-size:13px;font-weight:700;color:#2E2822">יקרה לבד — כבר מתוזמן</span>
+              <span style="font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums">4</span>
+            </div>
+            <div style="display:flex;gap:10px;overflow-x:auto;padding:2px 24px 8px">
+              <div style="flex:none;width:170px;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 15px">
+                <div style="font-size:11.5px;font-weight:700;color:#A05A3B;font-variant-numeric:tabular-nums">היום · 19:00</div>
+                <div style="font-size:13.5px;font-weight:600;color:#2E2822;margin-top:4px">הדגים של רון</div>
+              </div>
+              <div style="flex:none;width:170px;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 15px">
+                <div style="font-size:11.5px;font-weight:700;color:#A05A3B;font-variant-numeric:tabular-nums">היום · 21:00</div>
+                <div style="font-size:13.5px;font-weight:600;color:#2E2822;margin-top:4px">מספר חשבון לאביבה</div>
+              </div>
+              <div style="flex:none;width:170px;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 15px">
+                <div style="font-size:11.5px;font-weight:700;color:#A05A3B;font-variant-numeric:tabular-nums">היום · 21:30</div>
+                <div style="font-size:13.5px;font-weight:600;color:#2E2822;margin-top:4px">אלי אקספרס</div>
+              </div>
+              <div style="flex:none;width:170px;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 15px">
+                <div style="font-size:11.5px;font-weight:700;color:#A05A3B;font-variant-numeric:tabular-nums">מחר · 9:30</div>
+                <div style="font-size:13.5px;font-weight:600;color:#2E2822;margin-top:4px">משרד הבריאות</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:20px 0 0">
+            <div style="display:flex;align-items:baseline;gap:8px;padding:0 24px;margin-bottom:10px">
+              <span style="font-size:13px;font-weight:700;color:#8C8175">מחכה לרגע הנכון</span>
+              <span style="font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums">2</span>
+            </div>
+            <div style="display:flex;gap:10px;overflow-x:auto;padding:2px 24px 8px">
+              <div style="flex:none;width:180px;background:#F0EAE0;border:1px solid #E2D8C8;border-radius:16px;padding:14px 15px">
+                <div style="font-size:11.5px;font-weight:700;color:#8C8175">כשמיכל תענה</div>
+                <div style="font-size:13.5px;font-weight:600;color:#57503F;margin-top:4px">ההזמנה לבית החולים</div>
+              </div>
+              <div style="flex:none;width:180px;background:#F0EAE0;border:1px solid #E2D8C8;border-radius:16px;padding:14px 15px">
+                <div style="font-size:11.5px;font-weight:700;color:#8C8175">ליד הסופר</div>
+                <div style="font-size:13.5px;font-weight:600;color:#57503F;margin-top:4px">חיתולים</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:20px 0 26px">
+            <div style="display:flex;align-items:baseline;gap:8px;padding:0 24px;margin-bottom:10px">
+              <span style="font-size:13px;font-weight:700;color:#B4AA9C">שמור לעתיד</span>
+              <span style="font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums">1</span>
+            </div>
+            <div style="padding:0 24px">
+              <div style="background:transparent;border:1px dashed #C9BFAF;border-radius:16px;padding:14px 15px;display:flex;justify-content:space-between;gap:10px">
+                <div style="font-size:13.5px;font-weight:600;color:#8C8175">פילטר המזגן</div>
+                <div style="font-size:11.5px;font-weight:700;color:#B4AA9C">אזכיר באוגוסט</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:0 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">זרקי לי עוד בוואטסאפ ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 3c ============ -->
+    <div class="dv-opt" id="3c">
+      <div class="dv-olabel"><a class="dv-oid" href="#3c">3c</a>שלושה אזורים — "קורה עכשיו" פועם, "יקרה בזמן הנכון" עם תאריך, "שמור לעתיד" מעומעם אבל לא נעלם.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="3c שלושה אזורים">
+        <div style="display:flex;flex-direction:column;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:30px 24px 4px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:27px;line-height:1.35;color:#2E2822;font-weight:500">מבט אחד — ואת יודעת הכול.</div>
+            <div style="display:flex;gap:16px;margin-top:12px;font-size:12px;color:#8C8175">
+              <span><b style="color:#C2714D;font-variant-numeric:tabular-nums">4</b> קורה עכשיו</span>
+              <span><b style="color:#2E2822;font-variant-numeric:tabular-nums">4</b> יקרה בזמן הנכון</span>
+              <span><b style="color:#B4AA9C;font-variant-numeric:tabular-nums">2</b> שמור לעתיד</span>
+            </div>
+          </div>
+
+          <div style="margin:18px 16px 0;background:#F6EDE6;border-radius:22px;padding:18px 16px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+              <span style="width:9px;height:9px;border-radius:50%;background:#C2714D;animation:lunaPulse 2.4s ease-in-out infinite;display:inline-block"></span>
+              <span style="font-size:13px;font-weight:700;color:#A05A3B">קורה עכשיו</span>
+            </div>
+            <div style="font-size:11.5px;color:#B08A73;margin-bottom:12px">דברים בתנועה ברגע זה</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="background:#FFFEFB;border-radius:14px;padding:12px 14px;border-right:3px solid #C2714D">
+                <div style="font-size:14px;font-weight:600;color:#2E2822">מסעדה למחר — מילה ממך ואני סוגרת</div>
+                <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">איזו מסעדה ולאיזו שעה?</div>
+              </div>
+              <div style="background:#FFFEFB;border-radius:14px;padding:12px 14px">
+                <div style="font-size:14px;font-weight:600;color:#2E2822">מנסחת הודעה ליותם וקרן</div>
+                <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">תיאום ראיון — תקבלי לאישור.</div>
+              </div>
+              <div style="background:#FFFEFB;border-radius:14px;padding:12px 14px">
+                <div style="font-size:14px;font-weight:600;color:#2E2822">בודקת מחירים לתאילנד</div>
+                <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">רץ ברקע — אעדכן כשיהיה שווה להסתכל.</div>
+              </div>
+              <div style="background:#FFFEFB;border-radius:14px;padding:12px 14px">
+                <div style="font-size:14px;font-weight:600;color:#2E2822">עוקבת אחרי מיכל</div>
+                <div style="font-size:12px;line-height:1.5;color:#8C8175;margin-top:2px">ברגע שתענה מה להזמין לבית החולים — אקפיץ.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin:12px 16px 0;background:#F3F0E9;border-radius:22px;padding:18px 16px">
+            <div style="font-size:13px;font-weight:700;color:#2E2822;margin-bottom:4px">יקרה בזמן הנכון</div>
+            <div style="font-size:11.5px;color:#B4AA9C;margin-bottom:12px">מתוזמן — אני אזכיר, את לא צריכה לזכור</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="background:#FFFEFB;border-radius:14px;padding:11px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:13.5px;font-weight:600;color:#2E2822">הדגים של רון</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">היום 19:00</span>
+              </div>
+              <div style="background:#FFFEFB;border-radius:14px;padding:11px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:13.5px;font-weight:600;color:#2E2822">מספר חשבון לאביבה</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">היום 21:00</span>
+              </div>
+              <div style="background:#FFFEFB;border-radius:14px;padding:11px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:13.5px;font-weight:600;color:#2E2822">הזמנה מאלי אקספרס</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">היום 21:30</span>
+              </div>
+              <div style="background:#FFFEFB;border-radius:14px;padding:11px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:13.5px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#57503F;font-variant-numeric:tabular-nums">מחר 9:30</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin:12px 16px 0;border:1px dashed #D5CBBA;border-radius:22px;padding:18px 16px">
+            <div style="font-size:13px;font-weight:700;color:#8C8175;margin-bottom:4px">שמור לעתיד</div>
+            <div style="font-size:11.5px;color:#B4AA9C;margin-bottom:12px">לא דחוף — ולא הולך לאיבוד</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <div style="border-radius:14px;padding:11px 14px;background:#F5F1E9;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:13.5px;font-weight:600;color:#8C8175">לנקות את הפילטר של המזגן</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#B4AA9C">אוגוסט</span>
+              </div>
+              <div style="border-radius:14px;padding:11px 14px;background:#F5F1E9;display:flex;justify-content:space-between;align-items:baseline;gap:10px">
+                <span style="font-size:13.5px;font-weight:600;color:#8C8175">חיתולים</span>
+                <span style="flex:none;font-size:11.5px;font-weight:700;color:#B4AA9C">ליד הסופר</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:22px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">נזכרת בעוד משהו? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">אפשר להמשיך עם: ״<a class="dv-oid" href="#3a">3a</a> אבל עם הכותרות הצבעוניות של <a class="dv-oid" href="#3c">3c</a>״ · ״תני לכרטיס פתוח מצב מורחב בלחיצה״ · ״איך זה נראה כשנשארו רק 2 דברים פתוחים״</p>
+</section>
+
+<section class="dv-turn" id="t2">
+  <div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">רק מה שפתוח — והצצה למה שלונה מחזיקה</span></div>
+  <p class="dv-intro" dir="rtl">
+    ברירת המחדל: המסך מציג <b>רק מה שצריך אותך</b> (שאלה אחת). כל השאר נמצא אצל לונה — אבל נגיש בהצצה אחת, לביטחון.
+    <a class="dv-oid" href="#2a">2a</a> — חפיסה סגורה: המשימות מקופלות לערימת כרטיסים; לחיצה פורשת אותן.
+    <a class="dv-oid" href="#2b">2b</a> — מפה: המשימות מרחפות סביב לונה, כל נקודה לחיצה לפרטים.
+    <a class="dv-oid" href="#2c">2c</a> — דופק: פיד חי של הפעולות שלונה עשתה — ביטחון דרך ראיות, לא דרך רשימות.
+  </p>
+  <div class="dv-opts">
+
+    <!-- ============ 2a ============ -->
+    <div class="dv-opt" id="2a">
+      <div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>החפיסה — הכול מקופל לערימה אחת שקטה. לחצו עליה כדי לפרוש.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="2a חפיסה">
+        <div style="display:flex;flex-direction:column;min-height:760px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:34px 24px 8px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:28px;line-height:1.35;color:#2E2822;font-weight:500;text-wrap:pretty">דבר אחד צריך אותך.<br>כל השאר — אצלי.</div>
+          </div>
+          <div style="margin:18px 20px 0;background:#F6E9E1;border:1px solid #EBD5C6;border-radius:18px;padding:16px 18px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:6px">פתוח · דחוף להיום</div>
+            <div style="font-size:15px;line-height:1.55;color:#2E2822;font-weight:500">מקום למסעדה למחר — באיזו מסעדה, וסביב איזו שעה?</div>
+            <div style="margin-top:12px;text-align:center;background:#C2714D;color:#FBF9F4;font-size:13.5px;font-weight:600;padding:10px 0;border-radius:999px" style-hover="background:#A05A3B">אענה בוואטסאפ</div>
+          </div>
+          <sc-if value="{{ closed2a }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ toggle2a }}" style="cursor:pointer;margin:44px 20px 0;position:relative;height:190px">
+              <div style="position:absolute;inset:22px 26px auto;height:120px;background:#EFE8DC;border:1px solid #E2D8C8;border-radius:18px;transform:rotate(-3deg)"></div>
+              <div style="position:absolute;inset:12px 16px auto;height:130px;background:#F4EEE3;border:1px solid #E7DECF;border-radius:18px;transform:rotate(2deg)"></div>
+              <div style="position:absolute;inset:0 4px auto;height:150px;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:20px;box-shadow:0 6px 18px rgba(60,45,30,.08);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+                <div style="width:38px;height:38px;border-radius:50%;background:#F6E9E1;display:flex;align-items:center;justify-content:center;font-size:17px;color:#C2714D;font-weight:700;animation:lunaPulse 3s ease-in-out infinite">8</div>
+                <div style="font-size:15px;font-weight:600;color:#2E2822">שמונה משימות אצלי — הכול בתנועה</div>
+                <div style="font-size:12.5px;color:#B4AA9C">לחצי כדי להציץ</div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ open2a }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:24px 20px 0;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:20px;padding:18px 18px 8px;box-shadow:0 6px 18px rgba(60,45,30,.08)">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+                <div style="font-size:13px;font-weight:700;color:#2E2822">מה שאצלי עכשיו</div>
+                <div onClick="{{ toggle2a }}" style="cursor:pointer;font-size:12.5px;color:#A05A3B;font-weight:600">קפלי חזרה</div>
+              </div>
+              <sc-for list="{{ heldTasks }}" as="t" hint-placeholder-count="8">
+                <div style="display:flex;gap:11px;padding:9px 0;border-top:1px solid #F0EAE0;align-items:baseline">
+                  <div style="flex:none;width:8px;height:8px;border-radius:50%;background:{{ t.dotBg }};border:{{ t.dotBorder }};position:relative;top:0px"></div>
+                  <div style="display:flex;flex-direction:column;gap:1px">
+                    <div style="font-size:13.5px;font-weight:600;color:#2E2822">{{ t.title }}</div>
+                    <div style="font-size:12px;line-height:1.5;color:#8C8175">{{ t.note }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <div style="margin-top:auto;padding:24px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">עוד משהו על הראש? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 2b ============ -->
+    <div class="dv-opt" id="2b">
+      <div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>המפה — המשימות מרחפות סביב לונה. מלא = לונה פועלת, קו = ממתין לטריגר. לחיצה על משימה פותחת פרטים.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="2b מפה">
+        <div style="display:flex;flex-direction:column;min-height:760px;background:#F5F1E9">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:30px 24px 0">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:26px;line-height:1.35;color:#2E2822;font-weight:500">הכול באוויר — ואני מתחת.</div>
+            <div style="font-size:13.5px;line-height:1.6;color:#8C8175;margin-top:6px">שמונה משימות בתנועה סביבי. אחת מחכה לך למטה.</div>
+          </div>
+          <div style="position:relative;width:346px;height:330px;margin:10px auto 0" dir="ltr">
+            <div style="position:absolute;left:113px;top:105px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#F6E9E1,#EDD9CB);box-shadow:0 0 0 18px rgba(194,113,77,.05),0 0 0 38px rgba(194,113,77,.03);display:flex;flex-direction:column;align-items:center;justify-content:center;animation:lunaPulse 4s ease-in-out infinite">
+              <div style="font-family:'Frank Ruhl Libre',serif;font-size:15px;color:#A05A3B;font-weight:700">לונה</div>
+              <div style="font-size:11px;color:#C2714D">8 אצלי</div>
+            </div>
+            <sc-for list="{{ dots }}" as="d" hint-placeholder-count="8">
+              <div onClick="{{ d.onPick }}" dir="rtl" style="cursor:pointer;position:absolute;left:{{ d.x }}px;top:{{ d.y }}px;background:{{ d.bg }};color:{{ d.fg }};border:{{ d.border }};font-size:11.5px;font-weight:600;padding:6px 11px;border-radius:999px;box-shadow:0 2px 8px rgba(60,45,30,.07);transform:rotate({{ d.rot }}deg);white-space:nowrap" style-hover="box-shadow:0 4px 12px rgba(60,45,30,.16)">{{ d.short }}</div>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:center;gap:16px;font-size:11px;color:#8C8175;padding:2px 0 0">
+            <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#C2714D;display:inline-block"></span>אני פועלת</span>
+            <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;background:#2E2822;display:inline-block"></span>מתוזמן</span>
+            <span style="display:flex;align-items:center;gap:5px"><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #B4AA9C;display:inline-block"></span>ממתין לטריגר</span>
+          </div>
+          <sc-if value="{{ hasSel }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:14px 20px 0;background:#FFFEFB;border:1px solid #E7E0D4;border-radius:16px;padding:14px 16px;display:flex;flex-direction:column;gap:4px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline">
+                <div style="font-size:14px;font-weight:700;color:#2E2822">{{ selTitle }}</div>
+                <div onClick="{{ clearSel }}" style="cursor:pointer;font-size:12px;color:#B4AA9C">סגרי ✕</div>
+              </div>
+              <div style="font-size:12.5px;line-height:1.55;color:#8C8175">{{ selNote }}</div>
+            </div>
+          </sc-if>
+          <div style="margin:16px 20px 0;background:#F6E9E1;border:1px solid #EBD5C6;border-radius:18px;padding:14px 16px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:4px">היחידה שמחכה לך</div>
+            <div style="font-size:14px;line-height:1.5;color:#2E2822;font-weight:500">מסעדה למחר — איזו ולאיזו שעה?</div>
+          </div>
+          <div style="margin-top:auto;padding:20px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">זרקי לי עוד בוואטסאפ ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 2c ============ -->
+    <div class="dv-opt" id="2c">
+      <div class="dv-olabel"><a class="dv-oid" href="#2c">2c</a>הדופק — ביטחון דרך ראיות: פיד חי של מה שלונה עשתה הרגע, מקופל לשתי שורות אחרונות.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="2c דופק">
+        <div style="display:flex;flex-direction:column;min-height:760px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:34px 24px 8px">
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px">
+              <span style="width:9px;height:9px;border-radius:50%;background:#C2714D;animation:lunaPulse 2.4s ease-in-out infinite;display:inline-block"></span>
+              <span style="font-size:12px;font-weight:700;letter-spacing:.08em;color:#A05A3B">לונה עובדת עכשיו</span>
+            </div>
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:28px;line-height:1.35;color:#2E2822;font-weight:500;text-wrap:pretty">הכול רץ.<br>דבר אחד מחכה לך.</div>
+          </div>
+          <div style="margin:16px 20px 0;background:#F6E9E1;border:1px solid #EBD5C6;border-radius:18px;padding:16px 18px">
+            <div style="font-size:15px;line-height:1.55;color:#2E2822;font-weight:500">מקום למסעדה למחר — באיזו מסעדה, וסביב איזו שעה?</div>
+            <div style="margin-top:12px;text-align:center;background:#C2714D;color:#FBF9F4;font-size:13.5px;font-weight:600;padding:10px 0;border-radius:999px" style-hover="background:#A05A3B">אענה בוואטסאפ</div>
+          </div>
+          <div style="padding:28px 24px 0">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+              <div style="font-size:13px;font-weight:700;color:#2E2822">מאחורי הקלעים</div>
+              <div onClick="{{ toggle2c }}" style="cursor:pointer;font-size:12.5px;color:#A05A3B;font-weight:600">{{ feedToggleLabel }}</div>
+            </div>
+            <div style="display:flex;flex-direction:column">
+              <sc-for list="{{ feedItems }}" as="f" hint-placeholder-count="2">
+                <div style="display:flex;gap:14px;padding:11px 0;border-bottom:1px solid #F0EAE0">
+                  <div style="flex:none;width:36px;font-size:11.5px;color:#B4AA9C;font-variant-numeric:tabular-nums;padding-top:2px">{{ f.time }}</div>
+                  <div style="font-size:13.5px;line-height:1.55;color:#57503F">{{ f.text }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <sc-if value="{{ closed2c }}" hint-placeholder-val="{{ true }}">
+              <div style="padding:12px 0 0;font-size:12.5px;color:#B4AA9C">+ עוד 5 פעולות מהבוקר · 8 משימות במעקב</div>
+            </sc-if>
+          </div>
+          <div style="margin-top:auto;padding:24px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">נזכרת בעוד משהו? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">אפשר להמשיך עם: ״שלבי את הפיד של <a class="dv-oid" href="#2c">2c</a> בתוך החפיסה של <a class="dv-oid" href="#2a">2a</a>״ · ״תני למפה של <a class="dv-oid" href="#2b">2b</a> תנועה עדינה״ · ״וריאציות על מצב ריק — כשאין שום דבר פתוח״</p>
+</section>
+
+<section class="dv-turn" id="t1">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">חוויית ה־Dump של לונה — שלושה כיווני קיבוץ ורגעי שחרור</span></div>
+  <p class="dv-intro" dir="rtl">
+    הנחות: המשימות של גל (מהצילום) כבר נזרקו בוואטסאפ; המסך נפתח מלינק בטלפון. כל אופציה בוחנת שילוב אחר של <b>לוגיקת קיבוץ</b> + <b>רגע שחרור</b>:
+    <a class="dv-oid" href="#1a">1a</a> מקבצת לפי <b>בעלות</b> (מי מחזיק כל משימה — לונה, מעקב, או "כשנוח לך") והשחרור הוא הצהרה: "זה אצלי".
+    <a class="dv-oid" href="#1b">1b</a> מקבצת לפי <b>זמן</b> (היום / מחר / השבוע / בהמתנה) והשחרור הוא "את לא צריכה לזכור כלום — אזכיר בזמן הנכון".
+    <a class="dv-oid" href="#1c">1c</a> בנויה כ<b>מכתב חוזר</b> — המילים הגולמיות שלך מול מה שלונה כבר עשתה איתן (סגירת לולאות פתוחות, אפקט זייגרניק).
+    פלטה אחידה: ניוטרלים חמים + חימר רך. שאלות — רק אחת דחופה (המסעדה למחר); כל השאר נדחות לרגע האחראי האחרון.
+  </p>
+  <div class="dv-opts">
+
+    <!-- ============ 1a ============ -->
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>לפי בעלות — "זה אצלי". אוורירי ורך; שאלה אחת מוצמדת, כל קבוצה אומרת מי מחזיק את המשימה.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="1a לפי בעלות">
+        <div style="display:flex;flex-direction:column;min-height:800px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:34px 24px 8px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:16px;color:#8C8175;margin-bottom:10px">בוקר טוב, גל.</div>
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:29px;line-height:1.3;color:#2E2822;font-weight:500;text-wrap:pretty">תשעה דברים ירדו לך מהראש.</div>
+            <div style="font-size:14.5px;line-height:1.6;color:#8C8175;margin-top:10px">עברתי על הכול וסידרתי. מהרגע הזה — זה אצלי.</div>
+          </div>
+          <div style="margin:18px 20px 0;background:#F6E9E1;border:1px solid #EBD5C6;border-radius:18px;padding:16px 18px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.08em;color:#A05A3B;margin-bottom:6px">רק דבר אחד חשוב להיום</div>
+            <div style="font-size:15px;line-height:1.55;color:#2E2822;font-weight:500">מקום למסעדה למחר — כדאי לסגור עוד היום. באיזו מסעדה, וסביב איזו שעה?</div>
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <div style="flex:1;text-align:center;background:#C2714D;color:#FBF9F4;font-size:13.5px;font-weight:600;padding:10px 0;border-radius:999px" style-hover="background:#A05A3B">אענה בוואטסאפ</div>
+              <div style="flex:1;text-align:center;background:#FBF9F4;color:#A05A3B;font-size:13.5px;font-weight:600;padding:10px 0;border-radius:999px;border:1px solid #EBD5C6">תזכירי לי ב־17:00</div>
+            </div>
+          </div>
+          <div style="padding:26px 24px 0">
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:14px">
+              <span style="font-size:13px;font-weight:700;color:#2E2822">אני כבר מקדמת</span>
+              <span style="font-size:12px;color:#B4AA9C">3</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;background:#C2714D;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">מנסחת הודעת תיאום ליותם. אשלח לך לאישור לפני שיוצא.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;background:#C2714D;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">מצאתי את המספר: 08-6241010. אזכיר מחר ב־9:30, כשהם פתוחים.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;background:#C2714D;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">כרטיסים לתאילנד</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">בודקת טווחי מחירים. כשיהיו תאריכים — נסגור. לא שוכחת.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:26px 24px 0">
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:14px">
+              <span style="font-size:13px;font-weight:700;color:#2E2822">שומרת עין — יקרה לבד</span>
+              <span style="font-size:12px;color:#B4AA9C">3</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;border:1.5px solid #C9BFAF;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">ההזמנה של מיכל לבית החולים</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">ברגע שמיכל תכתוב מה להזמין — אקפיץ לך את זה.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;border:1.5px solid #C9BFAF;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">להגיד לרון על הדגים למחר</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">אזכיר היום ב־19:00, כשאתם בבית.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;border:1.5px solid #C9BFAF;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">מספר חשבון בנק לאביבה</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">תזכורת הערב. אם תשלחי לי את המספר — אכין הודעה מוכנה לשליחה.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:26px 24px 30px">
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:14px">
+              <span style="font-size:13px;font-weight:700;color:#2E2822">כשנוח לך — בלי לחץ</span>
+              <span style="font-size:12px;color:#B4AA9C">2</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;border:1.5px solid #C9BFAF;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">חיתולים</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">ברשימת הקניות. אזכיר בפעם הבאה שאת ליד הסופר.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:12px">
+                <div style="flex:none;width:8px;height:8px;border-radius:50%;border:1.5px solid #C9BFAF;margin-top:7px"></div>
+                <div style="display:flex;flex-direction:column;gap:3px">
+                  <div style="font-size:14.5px;font-weight:600;color:#2E2822">הזמנה מאלי אקספרס</div>
+                  <div style="font-size:13px;line-height:1.5;color:#8C8175">תזכורת רכה הערב, כשיש רגע על הספה.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:auto;padding:14px 20px 22px;background:linear-gradient(to top,#FBF9F4 70%,rgba(251,249,244,0))">
+            <div style="text-align:center;font-size:12.5px;color:#B4AA9C;margin-bottom:8px">עוד משהו מסתובב בראש?</div>
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">זרקי לי בוואטסאפ ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1b ============ -->
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>לפי זמן — "אזכיר בזמן הנכון". מינימלי וצפוף יותר, ציר זמן; השחרור הוא שאין מה לזכור.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="1b לפי זמן">
+        <div style="display:flex;flex-direction:column;min-height:800px;background:#FBF9F4">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:34px 24px 24px;border-bottom:1px solid #E7E0D4">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:26px;line-height:1.35;color:#2E2822;font-weight:500;text-wrap:pretty">הכול מסודר. את לא צריכה לזכור כלום מזה.</div>
+            <div style="display:flex;gap:18px;margin-top:16px;font-size:12.5px;color:#8C8175">
+              <span><b style="color:#2E2822;font-variant-numeric:tabular-nums">9</b> משימות נקלטו</span>
+              <span><b style="color:#2E2822;font-variant-numeric:tabular-nums">6</b> תזכורות נקבעו</span>
+              <span><b style="color:#C2714D;font-variant-numeric:tabular-nums">1</b> שאלה</span>
+            </div>
+          </div>
+          <div style="padding:22px 24px 0">
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#C2714D;margin-bottom:12px">היום · יום שלישי</div>
+            <div style="display:flex;flex-direction:column">
+              <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid #F0EAE0">
+                <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums;padding-top:2px">עכשיו</div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">מסעדה למחר — <span style="color:#A05A3B">איזו ולאיזו שעה?</span></div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175">שאלה אחת ואני סוגרת את המקום.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid #F0EAE0">
+                <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums;padding-top:2px">19:00</div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">להגיד לרון להכין את הדגים</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175">אזכיר כשאתם בבית.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;padding:10px 0">
+                <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums;padding-top:2px">21:00</div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">מספר חשבון לאביבה + אלי אקספרס</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175">שתי תזכורות קטנות לרגע רגוע בערב.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:18px 24px 0">
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#8C8175;margin-bottom:12px">מחר · יום רביעי</div>
+            <div style="display:flex;gap:14px;padding:10px 0">
+              <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;font-variant-numeric:tabular-nums;padding-top:2px">9:30</div>
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <div style="font-size:14px;font-weight:600;color:#2E2822">משרד הבריאות — רישיון ומלגה</div>
+                <div style="font-size:12.5px;line-height:1.5;color:#8C8175">המספר כבר אצלי: 08-6241010. אשלח אותו עם התזכורת.</div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:18px 24px 0">
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#8C8175;margin-bottom:12px">השבוע</div>
+            <div style="display:flex;flex-direction:column">
+              <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid #F0EAE0">
+                <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;padding-top:2px">בטיפול</div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">ראיון עם יותם וקרן</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175">מכינה הצעת זמנים — תקבלי לאישור.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;padding:10px 0">
+                <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;padding-top:2px">בטיפול</div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">כרטיסים לתאילנד</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175">אוספת מחירים. אשאל על תאריכים רק כשזה יידרש.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="padding:18px 24px 26px">
+            <div style="font-size:11.5px;font-weight:700;letter-spacing:.1em;color:#8C8175;margin-bottom:12px">ברקע — בלי תאריך</div>
+            <div style="display:flex;flex-direction:column">
+              <div style="display:flex;gap:14px;padding:10px 0;border-bottom:1px solid #F0EAE0">
+                <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;padding-top:2px">מעקב</div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">ההזמנה של מיכל לבית החולים</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175">מחכה לתשובה ממיכל — אעדכן ברגע שתענה.</div>
+                </div>
+              </div>
+              <div style="display:flex;gap:14px;padding:10px 0">
+                <div style="flex:none;width:44px;font-size:12px;color:#B4AA9C;padding-top:2px">מיקום</div>
+                <div style="display:flex;flex-direction:column;gap:2px">
+                  <div style="font-size:14px;font-weight:600;color:#2E2822">חיתולים</div>
+                  <div style="font-size:12.5px;line-height:1.5;color:#8C8175">אזכיר ליד הסופר.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:auto;padding:14px 20px 22px">
+            <div style="text-align:center;background:#2E2822;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#443B31">יש עוד? זרקי בוואטסאפ ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ 1c ============ -->
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>מכתב חוזר — המילים שלך מול מה שלונה עשתה. חם ואישי, סגירת לולאות פתוחות; השאלות נדחסות לסוף.</div>
+      <div class="dv-card" style="width:390px" dir="rtl" data-screen-label="1c מכתב חוזר">
+        <div style="display:flex;flex-direction:column;min-height:800px;background:#F8F4EC">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 22px 0;font-size:12px;color:#B4AA9C">
+            <span style="font-weight:600;letter-spacing:.14em;color:#C2714D">LUNA</span>
+            <span style="font-variant-numeric:tabular-nums">9:41</span>
+          </div>
+          <div style="padding:34px 26px 10px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:24px;line-height:1.45;color:#2E2822;font-weight:500;text-wrap:pretty">קיבלתי הכול, גל. הנה מה שעשיתי עם זה בעשר הדקות האחרונות —</div>
+          </div>
+          <div style="padding:16px 26px 0;display:flex;flex-direction:column;gap:20px">
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="align-self:flex-start;max-width:88%;background:#EDE6D9;border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:13px;line-height:1.5;color:#6E6456">״לקבוע עם יותם ראיון איתו ועם קרן״</div>
+              <div style="font-size:13.5px;line-height:1.55;color:#2E2822;padding-right:6px"><b style="color:#A05A3B">↩ בתנועה.</b> מנסחת הודעת תיאום — תקבלי לאישור.</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="align-self:flex-start;max-width:88%;background:#EDE6D9;border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:13px;line-height:1.5;color:#6E6456">״להתקשר למשרד הבריאות לבדוק מה עם הרישיון והגשת מלגה״</div>
+              <div style="font-size:13.5px;line-height:1.55;color:#2E2822;padding-right:6px"><b style="color:#A05A3B">↩ מוכן.</b> המספר אצלי — 08-6241010. תזכורת מחר ב־9:30.</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="align-self:flex-start;max-width:88%;background:#EDE6D9;border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:13px;line-height:1.5;color:#6E6456">״לחכות למיכל שתגיד מה להזמין לה לבית חולים״</div>
+              <div style="font-size:13.5px;line-height:1.55;color:#2E2822;padding-right:6px"><b style="color:#A05A3B">↩ במעקב.</b> ברגע שמיכל תענה — נזמין.</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="align-self:flex-start;max-width:88%;background:#EDE6D9;border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:13px;line-height:1.5;color:#6E6456">״לשלוח לאביבה מספר חשבון בנק״ · ״לעשות הזמנה מאלי אקספרס״ · ״להגיד לרון להכין את הדגים״</div>
+              <div style="font-size:13.5px;line-height:1.55;color:#2E2822;padding-right:6px"><b style="color:#A05A3B">↩ מתוזמן.</b> שלוש תזכורות קטנות הערב, כל אחת בזמן שלה.</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:7px">
+              <div style="align-self:flex-start;max-width:88%;background:#EDE6D9;border-radius:14px 14px 14px 4px;padding:9px 14px;font-size:13px;line-height:1.5;color:#6E6456">״לקנות חיתולים״</div>
+              <div style="font-size:13.5px;line-height:1.55;color:#2E2822;padding-right:6px"><b style="color:#A05A3B">↩ ברשימה.</b> אזכיר ליד הסופר.</div>
+            </div>
+          </div>
+          <div style="margin:24px 20px 0;background:#FBF9F4;border:1px solid #E7E0D4;border-radius:18px;padding:16px 18px">
+            <div style="font-family:'Frank Ruhl Libre',serif;font-size:16.5px;color:#2E2822;margin-bottom:10px">נשארו רק שתיים שצריכות אותך:</div>
+            <div style="display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;gap:10px;align-items:baseline">
+                <span style="flex:none;font-size:11px;font-weight:700;color:#FBF9F4;background:#C2714D;border-radius:999px;padding:2px 8px">היום</span>
+                <span style="font-size:13.5px;line-height:1.5;color:#2E2822">המסעדה למחר — איזו, ולאיזו שעה?</span>
+              </div>
+              <div style="display:flex;gap:10px;align-items:baseline">
+                <span style="flex:none;font-size:11px;font-weight:700;color:#8C8175;background:#EDE6D9;border-radius:999px;padding:2px 8px">בהמשך</span>
+                <span style="font-size:13.5px;line-height:1.5;color:#8C8175">תאריכים לתאילנד — אשאל רק כשנתחיל לסגור.</span>
+              </div>
+            </div>
+          </div>
+          <div style="padding:22px 26px 0;font-family:'Frank Ruhl Libre',serif;font-size:16px;line-height:1.6;color:#8C8175">זהו. הראש שלך פנוי — אני על השאר.<br>— לונה</div>
+          <div style="margin-top:auto;padding:20px 20px 22px">
+            <div style="text-align:center;background:#C2714D;color:#FBF9F4;font-size:14.5px;font-weight:600;padding:14px 0;border-radius:999px" style-hover="background:#A05A3B">נזכרת בעוד משהו? זרקי לי ←</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="dv-next">אפשר להמשיך עם: ״קחי את המבנה של <a class="dv-oid" href="#1a">1a</a> עם הבועות של <a class="dv-oid" href="#1c">1c</a>״ · ״תראי לי את רגע הטעינה — האנימציה שבה המשימות מתקפלות לקבוצות״ · ״וריאציות רק על כרטיס השאלה״</p>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open2a: false, open2c: false, sel2b: null, acc4a: null, tab4b: "now", tab5a: "now", tab5b: "later", pick6b: false, approved6c: false, plan6c: { fish: true, aviva: true, ali: true, health: true } };
+
+  mkTabs(key) {
+    const cur = this.state[key];
+    const st = (n) => cur === n
+      ? { bg: "#FBF9F4", fg: "#2E2822", sh: "0 1px 4px rgba(60,45,30,.12)" }
+      : { bg: "transparent", fg: "#8C8175", sh: "none" };
+    const n = st("now"), l = st("later"), s = st("saved");
+    return {
+      isNow: cur === "now", isLater: cur === "later", isSaved: cur === "saved",
+      goNow: () => this.setState({ [key]: "now" }),
+      goLater: () => this.setState({ [key]: "later" }),
+      goSaved: () => this.setState({ [key]: "saved" }),
+      nowBg: n.bg, nowFg: n.fg, nowSh: n.sh,
+      laterBg: l.bg, laterFg: l.fg, laterSh: l.sh,
+      savedBg: s.bg, savedFg: s.fg, savedSh: s.sh
+    };
+  }
+
+  renderVals() {
+    const tasks = [
+      { short: "יותם וקרן", title: "ראיון עם יותם וקרן", note: "מנסחת הודעת תיאום — תקבלי לאישור לפני שיוצא.", status: "active", x: 18, y: 34, rot: -3 },
+      { short: "תאילנד", title: "כרטיסים לתאילנד", note: "בודקת טווחי מחירים ברקע. אשאל על תאריכים רק כשנסגור.", status: "active", x: 210, y: 26, rot: 2 },
+      { short: "משרד הבריאות", title: "משרד הבריאות — רישיון ומלגה", note: "המספר אצלי: 08-6241010. תזכורת מחר ב־9:30, בשעות הפעילות.", status: "sched", x: 232, y: 118, rot: 3 },
+      { short: "מיכל", title: "ההזמנה של מיכל לבית החולים", note: "מחכה שמיכל תכתוב מה להזמין — ברגע שתענה אקפיץ לך.", status: "wait", x: 30, y: 128, rot: -2 },
+      { short: "הדגים של רון", title: "להגיד לרון להכין את הדגים", note: "תזכורת היום ב־19:00, כשאתם בבית.", status: "sched", x: 16, y: 226, rot: 2 },
+      { short: "אביבה", title: "מספר חשבון בנק לאביבה", note: "תזכורת הערב ב־21:00. שלחי לי את המספר ואכין הודעה מוכנה.", status: "sched", x: 226, y: 210, rot: -3 },
+      { short: "אלי אקספרס", title: "הזמנה מאלי אקספרס", note: "תזכורת רכה הערב, כשיש רגע על הספה.", status: "sched", x: 128, y: 268, rot: 1 },
+      { short: "חיתולים", title: "לקנות חיתולים", note: "ברשימת הקניות. אזכיר בפעם הבאה שאת ליד הסופר.", status: "wait", x: 126, y: 62, rot: -1 }
+    ];
+
+    const styleFor = (s) => s === "active"
+      ? { bg: "#C2714D", fg: "#FBF9F4", border: "1px solid #C2714D", dotBg: "#C2714D", dotBorder: "none" }
+      : s === "sched"
+      ? { bg: "#2E2822", fg: "#FBF9F4", border: "1px solid #2E2822", dotBg: "#2E2822", dotBorder: "none" }
+      : { bg: "#F5F1E9", fg: "#8C8175", border: "1.5px solid #C9BFAF", dotBg: "transparent", dotBorder: "1.5px solid #B4AA9C" };
+
+    const dots = tasks.map((t, i) => Object.assign({}, t, styleFor(t.status), {
+      onPick: () => this.setState({ sel2b: i })
+    }));
+
+    const heldTasks = tasks.map((t) => Object.assign({}, t, styleFor(t.status)));
+
+    const sel = this.state.sel2b == null ? null : tasks[this.state.sel2b];
+
+    const feedAll = [
+      { time: "9:38", text: "בדיקת מחירים לתאילנד רצה ברקע — אעדכן כשיהיה שווה להסתכל." },
+      { time: "9:36", text: "פתחתי מעקב על התשובה של מיכל לגבי בית החולים." },
+      { time: "9:33", text: "התחלתי לנסח הודעת תיאום ליותם ולקרן." },
+      { time: "9:31", text: "קבעתי שלוש תזכורות להערב: רון והדגים, אביבה, אלי אקספרס." },
+      { time: "9:28", text: "מצאתי את המספר של משרד הבריאות — תזכורת מחר ב־9:30." },
+      { time: "9:26", text: "זיהיתי שהמסעדה למחר דחופה — שמתי אותה ראשונה." },
+      { time: "9:24", text: "קיבלתי ממך 9 משימות. עברתי על הכול." }
+    ];
+
+    const horizonsData = [
+      { id: "eve", label: "הערב", summary: "שלוש תזכורות מוכנות, כל אחת בזמן שלה", dot: "sched", items: [
+        { t: "הדגים של רון", n: "19:00" }, { t: "מספר חשבון לאביבה", n: "21:00" }, { t: "הזמנה מאלי אקספרס", n: "21:30" }
+      ]},
+      { id: "tmrw", label: "מחר בבוקר", summary: "שיחה אחת — המספר כבר אצלי", dot: "sched", items: [
+        { t: "משרד הבריאות — רישיון ומלגה", n: "9:30" }
+      ]},
+      { id: "bg", label: "רץ ברקע", summary: "אני מקדמת, בלי שתצטרכי", dot: "active", items: [
+        { t: "ראיון עם יותם וקרן", n: "מנסחת הודעה" }, { t: "כרטיסים לתאילנד", n: "בודקת מחירים" }
+      ]},
+      { id: "trig", label: "ברגע הנכון", summary: "מחכים לטריגר — אני אזהה אותו", dot: "wait", items: [
+        { t: "ההזמנה של מיכל", n: "כשמיכל תענה" }, { t: "חיתולים", n: "ליד הסופר" }
+      ]},
+      { id: "far", label: "רחוק מכאן", summary: "שמור אצלי, יעלה כשיהיה רלוונטי", dot: "wait", items: [
+        { t: "פילטר המזגן", n: "אוגוסט" }
+      ]}
+    ];
+    const horizons = horizonsData.map((g) => {
+      const open = this.state.acc4a === g.id;
+      return Object.assign({}, g, {
+        open,
+        chev: open ? -90 : 90,
+        dotBg: g.dot === "active" ? "#C2714D" : g.dot === "sched" ? "#2E2822" : "transparent",
+        dotBorder: g.dot === "wait" ? "1.5px solid #B4AA9C" : "none",
+        onToggle: () => this.setState((s) => ({ acc4a: s.acc4a === g.id ? null : g.id }))
+      });
+    });
+
+    const tab = this.state.tab4b;
+    const tabStyle = (name) => tab === name
+      ? { bg: "#FBF9F4", fg: "#2E2822", sh: "0 1px 4px rgba(60,45,30,.12)" }
+      : { bg: "transparent", fg: "#8C8175", sh: "none" };
+    const tn = tabStyle("now"), tl = tabStyle("later"), ts = tabStyle("saved");
+
+    const planDefs = [
+      { id: "fish", title: "הדגים של רון", note: "תזכורת כשאתם בבית", time: "19:00" },
+      { id: "aviva", title: "מספר חשבון לאביבה", note: "אכין הודעה מוכנה", time: "21:00" },
+      { id: "ali", title: "הזמנה מאלי אקספרס", note: "תזכורת רכה בערב", time: "21:30" },
+      { id: "health", title: "משרד הבריאות", note: "המספר כבר אצלי", time: "מחר 9:30" }
+    ];
+    const plan6c = planDefs.map((p) => {
+      const on = this.state.plan6c[p.id];
+      return Object.assign({}, p, {
+        on,
+        rowOp: on ? 1 : 0.45,
+        trackBg: on ? "#C2714D" : "#E2D8C8",
+        just: on ? "flex-start" : "flex-end",
+        onToggle: () => this.setState((s) => ({ plan6c: Object.assign({}, s.plan6c, { [p.id]: !s.plan6c[p.id] }), approved6c: false }))
+      });
+    });
+    const onCount = planDefs.filter((p) => this.state.plan6c[p.id]).length;
+
+    return {
+      pick6b: this.state.pick6b,
+      togglePick6b: () => this.setState((s) => ({ pick6b: !s.pick6b })),
+      pickBtnBg: this.state.pick6b ? "#F0EAE0" : "transparent",
+      pickBtnFg: this.state.pick6b ? "#2E2822" : "#8C8175",
+      plan6c,
+      approved6c: this.state.approved6c,
+      notApproved6c: !this.state.approved6c,
+      approve6c: () => this.setState({ approved6c: true }),
+      approveLabel: onCount === 4 ? "מאשרת — רוצי על הכול" : "מאשרת — רוצי על " + onCount,
+      t5a: this.mkTabs("tab5a"),
+      t5b: this.mkTabs("tab5b"),
+      horizons,
+      isNow: tab === "now", isLater: tab === "later", isSaved: tab === "saved",
+      goNow: () => this.setState({ tab4b: "now" }),
+      goLater: () => this.setState({ tab4b: "later" }),
+      goSaved: () => this.setState({ tab4b: "saved" }),
+      tabNowBg: tn.bg, tabNowFg: tn.fg, tabNowSh: tn.sh,
+      tabLaterBg: tl.bg, tabLaterFg: tl.fg, tabLaterSh: tl.sh,
+      tabSavedBg: ts.bg, tabSavedFg: ts.fg, tabSavedSh: ts.sh,
+      open2a: this.state.open2a,
+      closed2a: !this.state.open2a,
+      toggle2a: () => this.setState((s) => ({ open2a: !s.open2a })),
+      heldTasks,
+      dots,
+      hasSel: !!sel,
+      selTitle: sel ? sel.title : "",
+      selNote: sel ? sel.note : "",
+      clearSel: () => this.setState({ sel2b: null }),
+      open2c: this.state.open2c,
+      closed2c: !this.state.open2c,
+      toggle2c: () => this.setState((s) => ({ open2c: !s.open2c })),
+      feedToggleLabel: this.state.open2c ? "צמצמי" : "הציגי הכול",
+      feedItems: this.state.open2c ? feedAll : feedAll.slice(0, 2)
+    };
+  }
+}
+</script>
+</body>
+</html>

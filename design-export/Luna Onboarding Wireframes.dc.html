@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics="">
+<meta name="design_doc_mode" content="canvas">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&amp;family=Frank+Ruhl+Libre:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0}
+  body{background:#F0EEE9;font-family:'IBM Plex Sans Hebrew',system-ui,sans-serif;color:#2E2822}
+  a{color:#A05A3B;text-decoration:none}
+  .dv-turn{padding:40px 44px 60px;scroll-margin-top:16px}
+  .dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 8px}
+  .dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#2E2822;color:#fff;border-radius:4px;text-decoration:none}
+  .dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#2E2822}
+  .dv-desc{max-width:680px;font-size:12.5px;line-height:1.65;color:#8C8175;margin:0 0 26px}
+  .dv-legend{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 30px;font-size:11px;color:#7A7062}
+  .dv-legend b{color:#2E2822}
+  .dv-legend span{display:inline-flex;align-items:center;gap:5px}
+  .dv-dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .dv-group{flex-basis:100%;display:flex;align-items:center;gap:10px;margin:18px 0 2px}
+  .dv-group:first-of-type{margin-top:0}
+  .dv-group-badge{font:700 10px ui-monospace,monospace;background:#EFE6D9;color:#A05A3B;border-radius:5px;padding:3px 8px}
+  .dv-group-name{font:600 13px 'IBM Plex Sans Hebrew';color:#2E2822}
+  .dv-group-note{font-size:11px;color:#A99B8C}
+  .dv-opts{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-start}
+  .dv-opt{flex:none;display:flex;flex-direction:column;gap:8px;scroll-margin-top:16px;width:230px}
+  .dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#2E2822;border-radius:5px;text-decoration:none}
+  .dv-olabel{display:flex;align-items:baseline;gap:7px;font:400 11px/1.3 system-ui,sans-serif;color:#7A7062}
+  .dv-opt:target .dv-oid{background:#A05A3B;color:#fff}
+  .dv-next{margin:34px 0 0;font:12px/1.6 system-ui,sans-serif;color:#8C8175}
+
+  /* phone wireframe kit */
+  .dv-phone{width:230px;height:472px;border:2px solid #2E2822;border-radius:28px;background:#FBF9F4;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 3px 14px rgba(60,45,30,.08);position:relative}
+  .dv-notch{position:absolute;top:6px;left:50%;transform:translateX(-50%);width:56px;height:5px;border-radius:3px;background:#E7DED0}
+  .dv-top{padding:18px 13px 6px}
+  .dv-brand{display:flex;align-items:center;gap:6px;margin-bottom:10px}
+  .dv-moon{width:15px;height:15px;border-radius:50%;background:#A05A3B;position:relative;overflow:hidden;flex:none}
+  .dv-moon::after{content:"";position:absolute;width:100%;height:100%;border-radius:50%;background:#FBF9F4;top:-22%;left:32%}
+  .dv-brandname{font-size:9.5px;font-weight:700;letter-spacing:.12em;color:#A05A3B}
+  .dv-bar{display:flex;gap:3px;margin-bottom:5px}
+  .dv-bar i{flex:1;height:4px;border-radius:2px;background:#E7DED0;font-style:normal}
+  .dv-bar i.on{background:#A05A3B}
+  .dv-step{font-size:9px;color:#A99B8C}
+  .dv-body{padding:0 13px 12px;flex:1;display:flex;flex-direction:column;gap:9px;overflow:hidden}
+  .dv-qzone{display:flex;align-items:center;justify-content:center;height:130px;flex:none;margin-top:50px;box-sizing:border-box}
+  .dv-bubblewrap{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:8px}
+  .dv-avatar{flex:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#C2714D,#A05A3B);display:flex;align-items:center;justify-content:center;color:#FBF9F4;font-size:11px}
+  .dv-bubble{background:#FFFFFF;border:1px solid #EDE6DA;border-radius:12px;padding:8px 12px;font-size:11px;line-height:1.5;color:#2E2822;box-shadow:0 1px 1px rgba(0,0,0,.04);text-align:center;max-width:172px}
+  .dv-answers{display:flex;flex-direction:column;gap:7px}
+  .dv-answers.dv-grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .dv-answers.dv-grid2 .dv-choice{flex-direction:column;text-align:center;gap:5px;padding:9px 6px;font-size:9.5px}
+  .dv-hint{font-size:9px;color:#A99B8C;padding:0 2px;text-wrap:pretty}
+  .dv-choice{border:1.5px dashed #CBBBA5;border-radius:10px;padding:7px 9px;font-size:10.5px;display:flex;align-items:center;gap:7px;color:#2E2822}
+  .dv-choice.picked{border-style:solid;border-color:#D8B9A0;background:#F8F1E9}
+  .dv-radio{width:12px;height:12px;border-radius:50%;border:1.5px solid #C2A98C;flex:none}
+  .dv-radio.picked{border-color:#A05A3B;background:radial-gradient(circle,#A05A3B 40%,transparent 42%)}
+  .dv-check{width:12px;height:12px;border-radius:3px;border:1.5px solid #C2A98C;flex:none}
+  .dv-check.picked{border-color:#A05A3B;background:#fff;position:relative}
+  .dv-check.picked::after{content:"";position:absolute;left:2.5px;top:0px;width:4px;height:7px;border:solid #A05A3B;border-width:0 1.5px 1.5px 0;transform:rotate(35deg)}
+  .dv-input{border:1.5px solid #E7DED0;border-radius:9px;padding:9px 10px;font-size:10.5px;color:#B9AC9A;flex:none;display:flex;align-items:center;background:#fff}
+  .dv-cta{margin:18px 6px 0;background:#A05A3B;color:#FBF9F4;text-align:center;border-radius:100px;padding:13px 20px;font-size:11.5px;font-weight:700}
+  .dv-cta.ghost{background:none;border:1.5px solid #DED2C2;color:#8C8175}
+  .dv-skip{text-align:center;font-size:9.5px;color:#B9AC9A;margin-top:4px}
+  .dv-cond{position:absolute;top:8px;right:8px;background:#EFE6D9;color:#A05A3B;font:700 8px ui-monospace,monospace;padding:2px 6px;border-radius:5px;z-index:2}
+  .dv-tbl{border:1px solid #E7DED0;border-radius:10px;overflow:hidden;font-size:9px}
+  .dv-tblrow{display:flex;align-items:center;border-top:1px solid #EFE6D9}
+  .dv-tblrow:first-child{border-top:none;background:#F3ECE1;font-weight:700;color:#8C8175}
+  .dv-tblcell{flex:1;padding:5px 4px;text-align:center;display:flex;align-items:center;justify-content:center}
+  .dv-tblcell:first-child{flex:1.4;justify-content:flex-start;padding-right:8px;font-weight:600;color:#2E2822}
+  .dv-card{background:#FFFFFF;border:1px solid #EDE6DA;border-radius:10px;padding:8px 9px;display:flex;align-items:center;gap:7px}
+  .dv-emoji{width:20px;text-align:center;font-size:13px}
+</style>
+</helmet>
+
+<section class="dv-turn" id="t1" dir="rtl">
+  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">אונבורדינג ללונה — כל שאלה במסך נפרד, בטלפון</span></div>
+  <p class="dv-desc">וויירפריים גס (לא עיצוב סופי) של כל תהליך ההיכרות: פתיחה חמה ← דוגמאות שימוש ← חיבור יומן גוגל ← הכנה ← שאלות, מסך אחד לכל שאלה, עם פס התקדמות למעלה כדי שתדע כמה נשאר. אפשר להגיב על כל מסך לפי המספר שלו (למשל <a class="dv-oid" href="#1i">1i</a>).</p>
+  <div class="dv-legend">
+    <span><i class="dv-dot" style="background:#A05A3B"></i><b>בחירה יחידה</b></span>
+    <span><i class="dv-dot" style="background:#7A9E76"></i><b>בחירה מרובה</b></span>
+    <span><i class="dv-dot" style="background:#C2714D"></i><b>טקסט פתוח / קול</b></span>
+    <span><i class="dv-dot" style="background:#8C8175"></i><b>🔀 מסך מותנה</b> — מוצג רק אם רלוונטי</span>
+  </div>
+
+  <div class="dv-opts">
+
+    <div class="dv-group"><span class="dv-group-badge">פתיחה</span><span class="dv-group-name">היכרות + חיבורים + הכנה</span><span class="dv-group-note">לפני שהשאלות מתחילות</span></div>
+
+    <!-- 1w whatsapp intro -->
+    <div class="dv-opt" id="1w">
+      <div class="dv-olabel"><a class="dv-oid" href="#1w">1w</a>ההתכתבות הראשונה בוואטסאפ</div>
+      <div class="dv-phone" style="background:#E5DED3"><div class="dv-notch"></div>
+        <div style="background:#075E54;padding:16px 13px 10px;display:flex;align-items:center;gap:8px">
+          <div class="dv-avatar" style="width:26px;height:26px;font-size:13px">☾</div>
+          <div style="color:#fff"><div style="font-size:11px;font-weight:700">לונה</div><div style="font-size:8.5px;opacity:.75">מקוונת</div></div>
+        </div>
+        <div class="dv-body" style="background:#E5DED3;padding:14px 10px;gap:8px;justify-content:flex-end">
+          <div style="align-self:flex-end;background:#DCF8C6;border-radius:10px 3px 10px 10px;padding:8px 10px;font-size:10px;line-height:1.5;max-width:75%;box-shadow:0 1px 1px rgba(0,0,0,.06);color:#2E2822">היי לונה! 👋</div>
+          <div style="align-self:flex-start;background:#fff;border-radius:3px 10px 10px 10px;padding:8px 10px;font-size:10px;line-height:1.55;max-width:86%;box-shadow:0 1px 1px rgba(0,0,0,.06);color:#2E2822">נעים להכיר, הגיע הזמן להוריד ממך קצת דברים מהראש 🌙 אצטרך כמה דקות כשיהיה לך זמן פנוי כדי להכיר אותך יותר טוב.</div>
+          <div style="align-self:flex-start;background:#fff;border-radius:3px 10px 10px 10px;padding:0;font-size:10px;line-height:1.5;max-width:86%;box-shadow:0 1px 1px rgba(0,0,0,.06);color:#2E2822;overflow:hidden">
+            <div style="padding:9px 10px 7px">2 דקות ומסיימות — אפשר להתחיל?</div>
+            <div style="height:64px;background:linear-gradient(145deg,#C2714D,#A05A3B);display:flex;align-items:center;justify-content:center;font-size:22px">🌙</div>
+            <div style="padding:7px 10px 9px">
+              <div style="font-weight:700;font-size:10px;color:#2E2822">היכרות עם לונה</div>
+              <div style="font-size:9px;color:#8C8175;margin-top:1px">שתי דקות, כמה שאלות קצרות</div>
+              <div style="font-size:8.5px;color:#A99B8C;margin-top:3px;letter-spacing:.02em">luna-app.co.il</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#F0EEE9;padding:9px 10px;display:flex;align-items:center;gap:8px">
+          <div style="flex:1;background:#fff;border-radius:16px;padding:8px 12px;font-size:9.5px;color:#B9AC9A">הודעה</div>
+          <div style="width:28px;height:28px;border-radius:50%;background:#00A884;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px">➤</div>
+        </div>
+      </div>
+      <div class="dv-hint" style="text-align:center">לחיצה על הלינק פותחת את מסך ההיכרות ← <a class="dv-oid" href="#1a">1a</a></div>
+    </div>
+
+    <!-- 1a Welcome -->
+    <div class="dv-opt" id="1a">
+      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>מסך פתיחה</div>
+      <div class="dv-phone"><div class="dv-notch"></div>
+        <div class="dv-top" style="padding-top:26px">
+          <div class="dv-brand" style="justify-content:center"><div class="dv-moon"></div><span class="dv-brandname">L U N A</span></div>
+        </div>
+        <div class="dv-body" style="align-items:center;text-align:center;justify-content:center;gap:14px;padding-top:6px">
+          <div class="dv-moon" style="width:34px;height:34px"></div>
+          <div style="font-family:'Frank Ruhl Libre',serif;font-weight:600;font-size:16px;line-height:1.35">היי, אני לונה 👋<br>העוזרת שנכנסת הביתה</div>
+          <div class="dv-hint" style="font-size:10px;line-height:1.6">הדבר המינימלי שכל אמא צריכה — במיוחד אמא מודרנית עם יותר מדי טאבים פתוחים בראש.</div>
+        </div>
+        <div class="dv-cta">בואי נכיר →</div>
+      </div>
+    </div>
+
+    <!-- 1b Use cases -->
+    <div class="dv-opt" id="1b">
+      <div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>הצצה לדוגמאות שימוש</div>
+      <div class="dv-phone" style="height:492px"><div class="dv-notch"></div>
+        <div class="dv-top"><div class="dv-brand"><div class="dv-moon"></div><span class="dv-brandname">L U N A</span></div>
+          <div style="font-size:12px;font-weight:600">איפה לונה יכולה לעזור לך?</div>
+        </div>
+        <div class="dv-body" style="gap:7px">
+          <div class="dv-hint" style="font-size:10.5px;line-height:1.6;text-align:right;font-style:italic;color:#8C8175">״תמיד נזכרת להתקשר לחברת החשמל כשהם כבר סגורים, אז כבר שבועיים שאני לא מגיעה לזה.״</div>
+          <div style="background:#E5DED3;border-radius:12px;padding:10px 9px;display:flex;flex-direction:column;gap:7px;margin-top:2px">
+            <div style="align-self:flex-end;background:#DCF8C6;border-radius:10px 3px 10px 10px;padding:7px 9px;font-size:9.5px;line-height:1.45;max-width:82%;color:#2E2822">
+              <div>תזכירי לי להתקשר לחברת החשמל</div>
+              <div style="font-size:7.5px;color:#7A9E76;text-align:left;margin-top:2px">23:56</div>
+            </div>
+            <div style="align-self:flex-start;background:#fff;border-radius:3px 10px 10px 10px;padding:7px 9px;font-size:9.5px;line-height:1.45;max-width:88%;color:#2E2822">
+              <div>רוצה לנצל את הדרך לעבודה כדי להתקשר לחברת החשמל? <a href="#" style="color:#0088CC;text-decoration:underline">03-1234567</a><br>פעילים <span dir="ltr">08:00–13:00</span></div>
+              <div style="font-size:7.5px;color:#A99B8C;text-align:left;margin-top:2px">08:13</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:center;gap:4px;margin-top:4px">
+            <span style="width:5px;height:5px;border-radius:50%;background:#DED2C2"></span>
+            <span style="width:5px;height:5px;border-radius:50%;background:#DED2C2"></span>
+            <span style="width:16px;height:5px;border-radius:3px;background:#A05A3B"></span>
+          </div>
+          <div class="dv-hint" style="text-align:center">→ גררי לדוגמה הבאה</div>
+        </div>
+        <div class="dv-skip">דלגי על הדוגמאות</div>
+        <div class="dv-cta">הבנתי, בואי נמשיך</div>
+      </div>
+    </div>
+
+    <!-- 1v Use case 2: group forward -->
+    <div class="dv-opt" id="1v">
+      <div class="dv-olabel"><a class="dv-oid" href="#1v">1v</a>דוגמה 2 — מעבירים הודעה מקבוצה</div>
+      <div class="dv-phone" style="height:560px"><div class="dv-notch"></div>
+        <div class="dv-top"><div class="dv-brand"><div class="dv-moon"></div><span class="dv-brandname">L U N A</span></div>
+          <div style="font-size:12px;font-weight:600">איפה לונה יכולה לעזור לך?</div>
+        </div>
+        <div class="dv-body" style="gap:7px">
+
+          <div class="dv-hint" style="font-size:10.5px;line-height:1.6;text-align:right;font-style:italic;color:#8C8175">כשמגיעה הודעה מהגן בדיוק כשאת עם הילדים, והיא נעלמת בתוך כל ההודעות — ואין סיכוי שתזכרי אותה למחר בבוקר.</div>
+          <div style="background:#E5DED3;border-radius:10px;padding:6px 7px;display:flex;flex-direction:column;gap:4px;opacity:.85">
+          <div style="font-size:7.5px;color:#8C8175;text-align:center">🏫 קבוצה: גן של רוני</div>
+          <div style="align-self:flex-start;background:#fff;border-radius:3px 8px 8px 8px;padding:5px 7px;font-size:8px;line-height:1.4;max-width:88%;color:#2E2822">
+            <div style="font-weight:700;color:#A05A3B;font-size:7px;margin-bottom:1px">שירי, הגננת של רוני</div>
+            מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
+            <div style="font-size:6.5px;color:#A99B8C;text-align:left;margin-top:1px">17:56</div>
+          </div>
+          </div>
+
+          <div style="font-size:8.5px;color:#8C8175;text-align:center">↓ מעבירה ללונה</div>
+
+          <div style="background:#E5DED3;border-radius:14px;padding:11px 10px;display:flex;flex-direction:column;gap:7px;box-shadow:0 2px 8px rgba(160,90,59,.1)">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:1px">
+            <div class="dv-avatar" style="width:20px;height:20px;font-size:10px"></div>
+            <span style="font-size:10.5px;font-weight:700;color:#2E2822">לונה</span>
+          </div>
+          <div style="align-self:center;background:#00000012;border-radius:8px;padding:3px 12px;font-size:8px;color:#7A7062;font-weight:600;margin:2px 0">אתמול</div><div style="align-self:flex-end;background:#DCF8C6;border-radius:10px 3px 10px 10px;padding:8px 10px;font-size:10px;line-height:1.45;max-width:88%;color:#2E2822">
+            <div style="display:flex;align-items:center;gap:3px;color:#8C8175;font-size:8.5px;font-style:italic;margin-bottom:2px">↪ הועבר</div>
+            מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
+            <div style="font-size:8px;color:#7A9E76;text-align:left;margin-top:2px">17:57</div>
+          </div>
+
+          
+
+          <div style="align-self:flex-start;background:#fff;border-radius:3px 10px 10px 10px;padding:8px 10px;font-size:10px;line-height:1.45;max-width:88%;color:#2E2822">
+            📅 מעולה, הוספתי!
+            <div style="font-size:8px;color:#A99B8C;text-align:left;margin-top:2px">17:57</div>
+          </div><div style="align-self:center;background:#00000012;border-radius:8px;padding:3px 12px;font-size:8px;color:#7A7062;font-weight:600;margin:2px 0">היום</div>
+
+          <div style="align-self:flex-start;background:#fff;border-radius:3px 10px 10px 10px;padding:8px 10px;font-size:10px;line-height:1.45;max-width:88%;color:#2E2822">
+            היי, זכרת לשים לרוני חולצה לבנה? 😊
+            <div style="font-size:8px;color:#A99B8C;text-align:left;margin-top:2px">07:45</div>
+          </div>
+          </div>
+
+          <div style="display:flex;justify-content:center;gap:4px;margin-top:6px">
+            <span style="width:5px;height:5px;border-radius:50%;background:#DED2C2"></span>
+            <span style="width:16px;height:5px;border-radius:3px;background:#A05A3B"></span>
+            <span style="width:5px;height:5px;border-radius:50%;background:#DED2C2"></span>
+          </div>
+          <div class="dv-hint" style="text-align:center">→ גררי לדוגמה הבאה</div>
+        </div>
+        <div class="dv-skip">דלגי על הדוגמאות</div>
+        <div class="dv-cta">הבנתי, בואי נמשיך</div>
+      </div>
+    </div>
+
+    <!-- 1c Connect Google Calendar -->
+    <div class="dv-opt" id="1c">
+      <div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>חיבור יומן גוגל</div>
+      <div class="dv-phone"><div class="dv-notch"></div>
+        <div class="dv-top" style="padding-top:26px"><div class="dv-brand" style="justify-content:center"><div class="dv-moon"></div><span class="dv-brandname">L U N A</span></div></div>
+        <div class="dv-body" style="align-items:center;text-align:center;justify-content:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:12px;background:#F3E4D9;display:flex;align-items:center;justify-content:center;font-size:20px">📅</div>
+          <div style="font-family:'Frank Ruhl Libre',serif;font-weight:600;font-size:15px;line-height:1.35">בואי נחבר את יומן גוגל שלך</div>
+          <div class="dv-hint" style="font-size:10px;line-height:1.65">ככה אדע מתי את פנויה ומתי לא, ואזכיר לך בול בזמן הנכון — בלי שתצטרכי לספר לי כל פעם.</div>
+          <div style="display:flex;align-items:center;gap:8px;border:1.5px solid #E7DED0;border-radius:10px;padding:9px 14px;margin-top:4px">
+            <span style="width:16px;height:16px;border-radius:50%;background:#fff;border:1.5px solid #DED2C2;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#A05A3B">G</span>
+            <span style="font-size:11px;font-weight:600">התחברות עם Google Calendar</span>
+          </div>
+        </div>
+        <div class="dv-skip">לא עכשיו, אפשר גם בהמשך</div>
+        <div class="dv-cta">התחברות</div>
+      </div>
+    </div>
+
+    <!-- 1d Get ready -->
+    <div class="dv-opt" id="1d">
+      <div class="dv-olabel"><a class="dv-oid" href="#1d">1d</a>הכנה לפני השאלות</div>
+      <div class="dv-phone"><div class="dv-notch"></div>
+        <div class="dv-top" style="padding-top:26px"><div class="dv-brand" style="justify-content:center"><div class="dv-moon"></div><span class="dv-brandname">L U N A</span></div></div>
+        <div class="dv-body" style="align-items:center;text-align:center;justify-content:center;gap:12px">
+          <div style="font-size:20px">✍️</div>
+          <div style="font-family:'Frank Ruhl Libre',serif;font-weight:600;font-size:15px;line-height:1.35">עוד רגע מתחילות</div>
+          <div class="dv-hint" style="font-size:10px;line-height:1.65">כדי שאדע להתאים את עצמי בול אלייך, יש לי כמה שאלות קצרות. הכי כדאי להתחיל כשיש לך כמה דקות פנויות, בלי הפרעות.</div>
+          <div style="font-size:9.5px;color:#A05A3B;font-weight:700">⏱ כ-3 דקות · 3 חלקים קצרים</div>
+        </div>
+        <div class="dv-cta">מתחילות 🌙</div>
+      </div>
+    </div>
+
+    <div class="dv-group"><span class="dv-group-badge">חלק 1</span><span class="dv-group-name">מכירים — האנשים החשובים</span></div>
+
+    <!-- 1e -->
+    <div class="dv-opt" id="1e">
+      <div class="dv-olabel"><a class="dv-oid" href="#1e">1e</a>עם מי גרה בבית (בחירה מרובה)</div>
+      <div class="dv-phone"><div class="dv-notch"></div>
+        <div class="dv-top"><div class="dv-bar"><i class="on"></i><i></i><i></i></div><div class="dv-step">חלק 1 מתוך 3 · שאלה 1</div></div>
+        <div class="dv-body">
+          <div class="dv-qzone"><div class="dv-bubblewrap"><div class="dv-avatar">☾</div><div class="dv-bubble">בואי נכיר קצת — עם מי את גרה בבית?</div></div></div>
+          <div class="dv-answers dv-grid2">
+          <div class="dv-choice picked"><div class="dv-check picked"></div>בן/בת זוג</div>
+          <div class="dv-choice picked"><div class="dv-check picked"></div>ילדים</div>
+          <div class="dv-choice"><div class="dv-check"></div>הורה / קרוב משפחה</div>
+          <div class="dv-choice"><div class="dv-check"></div>לבד</div>
+          <div class="dv-choice"><div class="dv-check"></div>מישהו אחר</div>
+          </div>
+        </div>
+        <div class="dv-cta">המשך</div>
+      </div>
+    </div>
+
+    <!-- 1f -->
+    <div class="dv-opt" id="1f">
+      <div class="dv-olabel"><a class="dv-oid" href="#1f">1f</a>השמות שלהם (טקסט פתוח)</div>
+      <div class="dv-phone"><div class="dv-notch"></div>
+        <div class="dv-top"><div class="dv-bar"><i class="on"></i><i></i><i></i></div><div class="dv-step">חלק 1 מתוך 3 · שאלה 2</div></div>
+        <div class="dv-body">
+          <div class="dv-qzone"><div class="dv-bubblewrap"><div class="dv-avatar">☾</div><div class="dv-bubble">מה השמות שלהם?</div></div></div>
+          <div style="display:flex;flex-direction:column;gap:3px"><div style="font-size:9.5px;color:#8C8175;font-weight:600;padding:0 2px">בן/בת זוג</div><div class="dv-input">לדוגמה יונתן</div>
+</div>
+          <div style="display:flex;gap:6px"><div style="flex:2;display:flex;flex-direction:column;gap:3px"><div style="font-size:9.5px;color:#8C8175;font-weight:600;padding:0 2px">ילד/ה 1</div><div class="dv-input">לדוגמה נועה</div></div><div style="flex:1;display:flex;flex-direction:column;gap:3px"><div style="font-size:9.5px;color:#8C8175;font-weight:600;padding:0 2px">גיל</div><div class="dv-input">7</div></div></div>
+          <div style="display:flex;gap:6px"><div style="flex:2;display:flex;flex-direction:column;gap:3px"><div style="font-size:9.5px;color:#8C8175;font-weight:600;padding:0 2px">ילד/ה 2</div><div class="dv-input">לדוגמה איתי</div></div><div style="flex:1;display:flex;flex-direction:column;gap:3px"><div style="font-size:9.5px;color:#8C8175;font-weight:600;padding:0 2px">גיל</div><div class="dv-input">4</div></div></div>
+        </div>
+        <div class="dv-cta">המשך</div>
+      </div>
+    </div>
+
+    <!-- 1g conditional -->
+    <div class="dv-opt" id="1g">
+      <div class="dv-olabel"><a class="dv-oid" href="#1g">1g</a>איש קשר לענייני ילדים 🔀</div>
+      <div class="dv-phone"><div class="dv-notch"></div><div class="dv-cond">🔀 מוצג רק אם יש ילדים</div>
+        <div class="dv-top"><div class="dv-bar"><i class="on"></i><i></i><i></i></div><div class="dv-step">חלק 1 מתוך 3 · שאלה 3</div></div>
+        <div class="dv-body">
+          <div class="dv-qzone"><div class="dv-bubblewrap"><div class="dv-avatar">☾</div><div class="dv-bubble">למי מתקשרים כשיש בלגן עם הילדים? יש עוד מישהו חשוב שכדאי שאכיר?</div></div></div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;gap:6px;border:1px solid #E7DED0;border-radius:10px;padding:7px">
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px"><div style="font-size:9px;color:#8C8175;font-weight:600;padding:0 2px">מי זה/זאת</div><div class="dv-input" style="font-size:9.5px">סבא</div></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px"><div style="font-size:9px;color:#8C8175;font-weight:600;padding:0 2px">שם</div><div class="dv-input" style="font-size:9.5px">שם</div></div>
+            </div>
+            <div style="display:flex;gap:6px;border:1px solid #E7DED0;border-radius:10px;padding:7px">
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px"><div style="font-size:9px;color:#8C8175;font-weight:600;padding:0 2px">מי זה/זאת</div><div class="dv-input" style="font-size:9.5px;color:#B9AC9A">סבתא, מטפלת...</div></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:3px"><div style="font-size:9px;color:#8C8175;font-weight:600;padding:0 2px">שם</div><div class="dv-input" style="font-size:9.5px;color:#B9AC9A">שם</div></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:6px;border:1.5px dashed #CBBBA5;border-radius:9px;padding:7px;color:#A05A3B;font-weight:700;font-size:10px">+ הוספת עוד איש קשר</div>
+          <div class="dv-hint">אפשר להוסיף יותר מאחד/ת</div>
+        </div>
+        <div class="dv-cta">המשך</div>
+      </div>
+    </div>
+
+    <div class="dv-group"><span class="dv-group-badge">חלק 2</span><span class="dv-group-name">איך את עובדת היום</span></div>
+
+    <!-- 1i -->
+    <div class="dv-opt" id="1i">
+      <div class="dv-olabel"><a class="dv-oid" href="#1i">1i</a>כשקופץ משהו שלא רוצה לשכוח</div>
+      <div class="dv-phone"><div class="dv-notch"></div>
+        <div class="dv-top"><div class="dv-bar"><i class="on"></i><i class="on"></i><i></i></div><div class="dv-step">חלק 2 מתוך 3 · שאלה 1</div></div>
+        <div class="dv-body">
+          <div class="dv-qzone"><div class="dv-bubblewrap"><div class="dv-avatar">☾</div><div class="dv-bubble">כל אחת מנהלת את הראש שלה קצת אחרת 😊 כשקופץ לך משהו שאת לא רוצה לשכוח, מה את עושה בדרך כלל?</div></div></div>
+          <div class="dv-answers dv-grid2">
+          <div class="dv-choice"><div class="dv-radio"></div>כותבת לעצמי</div>
+          <div class="dv-choice picked"><div class="dv-radio picked"></div>שולחת לעצמי הודעה</div>
+          <div class="dv-choice"><div class="dv-radio"></div>שמה ביומן</div>
+          <div class="dv-choice"><div class="dv-radio"></div>תזכורת בטלפון</div>
+          <div class="dv-choice"><div class="dv-radio"></div>פשוט זוכרת בראש</div>
+          </div>
+        </div>
+        <div class="dv-cta">המשך</div>
+      </div>
+    </div>
+
+    <!-- 1j conditional -->
+    <div class="dv-opt" id="1j">
+      <div class="dv-olabel"><a class="dv-oid" href="#1j">1j</a>היומן שלך 🔀</div>
+      <div class="dv-phone"><div class="dv-notch"></div><div class="dv-cond">🔀 רק אם עוד לא ברור</div>
+        <div class="dv-top"><div class="dv-bar"><i class="on"></i><i class="on"></i><i></i></div><div class="dv-step">חלק 2 מתוך 3 · שאלה 2</div></div>
+        <div class="dv-body">
+          <div class="dv-qzone"><div class="dv-bubblewrap"><div class="dv-avatar">☾</div><div class="dv-bubble">ומה לגבי היומן שלך?</div></div></div>
+          <div class="dv-answers">
+          <div class="dv-choice"><div class="dv-radio"></div>אני חיה לפיו</div>
+          <div class="dv-choice picked"><div class="dv-radio picked"></div>רק פגישות נכנסות אליו</div>
+          <div class="dv-choice"><div class="dv-radio"></div>כמעט לא משתמשת בו</div>
+          </div>
+        </div>
+        <div class="dv-cta">המשך</div>
+      </div>
+    </div>
+
+    <div class="dv-group"><span class="dv-group-badge">חלק 3</span><span class="dv-group-name">לסיום</span></div>
+
+    <!-- 1k multi -->
+    <div class="dv-opt" id="1k">
+      <div class="dv-olabel"><a class="dv-oid" href="#1k">1k</a>איפה הכי להרגיש את זה (מרובה)</div>
+      <div class="dv-phone" style="height:492px"><div class="dv-notch"></div>
+        <div class="dv-top"><div class="dv-bar"><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="dv-step">חלק 3 מתוך 3 · שאלה 1</div></div>
+        <div class="dv-body">
+          <div class="dv-qzone"><div class="dv-bubblewrap"><div class="dv-avatar">☾</div><div class="dv-bubble">יש לי מטרה אחת: להוריד לך עומס מהראש. איפה את הכי רוצה שארגיש את זה?</div></div></div>
+          <div class="dv-answers dv-grid2">
+          <div class="dv-choice picked"><div class="dv-check picked"></div>בתזכורות ובזיכרון</div>
+          <div class="dv-choice"><div class="dv-check"></div>מעקב אחרי אנשים ומשימות</div>
+          <div class="dv-choice picked"><div class="dv-check picked"></div>בתכנון וניהול הזמן</div>
+          <div class="dv-choice"><div class="dv-check"></div>בסידורים ובבירוקרטיה</div>
+          <div class="dv-choice"><div class="dv-check"></div>בקניות ובהזמנות</div>
+          <div class="dv-choice"><div class="dv-check"></div>במשהו אחר...</div>
+          </div>
+        </div>
+        <div class="dv-cta">המשך</div>
+      </div>
+    </div>
+
+    <!-- 1m completion -->
+    <div class="dv-opt" id="1m">
+      <div class="dv-olabel"><a class="dv-oid" href="#1m">1m</a>מסך סיום</div>
+      <div class="dv-phone"><div class="dv-notch"></div>
+        <div class="dv-top" style="padding-top:26px"><div class="dv-brand" style="justify-content:center"><div class="dv-moon"></div><span class="dv-brandname">L U N A</span></div></div>
+        <div class="dv-body" style="align-items:center;text-align:center;justify-content:center;gap:12px">
+          <div style="font-size:22px">🌙✨</div>
+          <div style="font-family:'Frank Ruhl Libre',serif;font-weight:600;font-size:16px;line-height:1.35">מוכנה!<br>אני כבר מכירה אותך קצת</div>
+          <div class="dv-hint" style="font-size:10px;line-height:1.65">מעכשיו, פשוט שולחים לי — ואני אדע להתאים את עצמי בדיוק אלייך.</div>
+          <div class="dv-hint" style="font-size:9px;color:#7A9E76;font-weight:700">🟢 בלחיצה על הכפתור חוזרים לוואטסאפ</div>
+        </div>
+        <div class="dv-cta">📤 חזרה לוואטסאפ</div>
+      </div>
+    </div>
+
+    <!-- 1n whatsapp handoff -->
+    <div class="dv-opt" id="1n">
+      <div class="dv-olabel"><a class="dv-oid" href="#1n">1n</a>נחיתה בוואטסאפ עם הודעה מוכנה</div>
+      <div class="dv-phone" style="background:#E5DED3"><div class="dv-notch"></div>
+        <div style="background:#075E54;padding:16px 13px 10px;display:flex;align-items:center;gap:8px">
+          <div class="dv-avatar" style="width:26px;height:26px;font-size:13px">☾</div>
+          <div style="color:#fff"><div style="font-size:11px;font-weight:700">לונה</div><div style="font-size:8.5px;opacity:.75">מקוונת</div></div>
+        </div>
+        <div class="dv-body" style="background:#E5DED3;padding:14px 10px;gap:8px;justify-content:flex-end">
+          <div style="align-self:flex-start;background:#fff;border-radius:3px 10px 10px 10px;padding:8px 10px;font-size:10px;line-height:1.5;max-width:80%;box-shadow:0 1px 1px rgba(0,0,0,.06)">היי! נעים להכיר 🌙 סיימת להכיר אותי — עכשיו את יכולה פשוט לשלוח לי כל דבר.</div>
+          <div style="align-self:flex-start;display:flex;align-items:center;gap:5px;border:1.5px solid #C9E4C0;background:#F1F9EF;border-radius:9px;padding:8px 10px;margin-top:auto">
+            <span style="font-size:12px">✍️</span>
+            <span style="font-size:10px;color:#3A3A3A;font-weight:600">לונה, סיימתי את האונבורדינג, אפשר להתחיל</span>
+          </div>
+        </div>
+        <div style="background:#F0EEE9;padding:9px 10px;display:flex;align-items:center;gap:8px">
+          <div style="flex:1;background:#fff;border-radius:16px;padding:8px 12px;font-size:9.5px;color:#B9AC9A">הודעה</div>
+          <div style="width:28px;height:28px;border-radius:50%;background:#00A884;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px">➤</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="dv-next">להגיב על מסך ספציפי: כתבי את המספר שלו, למשל "<a class="dv-oid" href="#1c">1c</a> — אולי כדאי שהיא תוכל לחבר גם יומן אחר". אפשר גם לבקש "עוד וריאציה לפתיחה" או "לקצר את חלק 1".</p>
+</section>
+
+</x-dc>
+</body>
+</html>
