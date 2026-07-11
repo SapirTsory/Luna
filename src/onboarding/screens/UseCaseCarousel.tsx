@@ -73,7 +73,7 @@ function ReminderSlide() {
   return (
     <div className="flex flex-col gap-3">
       <ExampleQuote>"תמיד נזכרת להתקשר לחברת החשמל כשהם כבר סגורים, אז כבר שבועיים שאני לא מגיעה לזה."</ExampleQuote>
-      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3">
+      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
         <OutgoingBubble time="23:56">תזכירי לי להתקשר לחברת החשמל</OutgoingBubble>
         <LunaBubble time="08:13">
           רוצה לנצל את הדרך לעבודה כדי להתקשר לחברת החשמל?{' '}
@@ -97,7 +97,7 @@ function GroupForwardSlide() {
       <ExternalSnippet icon="🏫" source="גן של רוני" sender="שירי, הגננת">
         מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
       </ExternalSnippet>
-      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3">
+      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
         <OutgoingBubble time="17:57" forwarded read>
           מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
         </OutgoingBubble>
@@ -112,7 +112,7 @@ function InsuranceSlide() {
   return (
     <div className="flex flex-col gap-3">
       <ExampleQuote>סופסוף זכרת להגיש את המסמכים לביטוח, ועכשיו את צריכה לוודא שהכסף נכנס — יש לזה 28 ימי עסקים.</ExampleQuote>
-      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3">
+      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
         <VoiceMessageBubble duration="1:30" time="09:12" />
         <LunaBubble time="09:13">קיבלתי ❤️ מעכשיו זה עליי, לא צריך לזכור יותר.</LunaBubble>
         <TimeDivider>22 ימים אחר כך</TimeDivider>
@@ -134,7 +134,7 @@ function PayboxSlide() {
       <ExternalSnippet icon="💜" source="קבוצת ההורים · גן רוני" sender="מיכל">
         לינק לתשלום ועד הגן החודש — מי שעוד לא שילמה 🙏
       </ExternalSnippet>
-      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3">
+      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
         <OutgoingBubble time="18:24" forwarded read>
           לינק לתשלום ועד הגן החודש — מי שעוד לא שילמה 🙏
         </OutgoingBubble>

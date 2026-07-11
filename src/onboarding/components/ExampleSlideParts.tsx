@@ -14,7 +14,7 @@ interface ExternalSnippetProps {
 
 export function ExternalSnippet({ icon, source, sender, children }: ExternalSnippetProps) {
   return (
-    <div className="rounded-xl bg-whatsapp-bg p-2.5 opacity-90">
+    <div className="rounded-xl bg-whatsapp-bg p-2.5 opacity-90 font-whatsapp">
       <div className="mb-1 text-center text-[11px] text-muted">
         {icon} {source}
       </div>
