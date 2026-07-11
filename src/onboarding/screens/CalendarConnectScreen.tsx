@@ -37,7 +37,7 @@ export function CalendarConnectScreen({ connected, onConnect, onNext }: Calendar
       <div className="flex size-11 items-center justify-center rounded-xl bg-choice-bg text-xl" aria-hidden="true">
         📅
       </div>
-      <h1 className="font-serif text-lg font-semibold leading-snug">בואי נחבר את יומן גוגל שלך</h1>
+      <h1 className="text-lg font-semibold leading-snug">בואי נחבר את יומן גוגל שלך</h1>
       <p className="text-sm leading-relaxed text-muted">
         ככה אדע מתי את פנויה ומתי לא, ואזכיר לך בול בזמן הנכון — בלי שתצטרכי לספר לי כל פעם.
       </p>
