@@ -1,8 +1,6 @@
-import { useState } from 'react'
-import { LunaLogo } from '../components/LunaLogo'
-import { PillButton } from '../components/PillButton'
-import { ScreenShell } from '../components/ScreenShell'
-import { SkipLink } from '../components/SkipLink'
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { ChatMessage, TYPING_MS } from '../components/ChatMessage'
 import {
   ExampleQuote,
   ExternalSnippet,
@@ -11,6 +9,19 @@ import {
   TimeDivider,
   VoiceMessageBubble,
 } from '../components/ExampleSlideParts'
+import { LunaLogo } from '../components/LunaLogo'
+import { PillButton } from '../components/PillButton'
+import { ScreenShell } from '../components/ScreenShell'
+import { SkipLink } from '../components/SkipLink'
+
+function createSequencer(start = 150) {
+  let cursor = start
+  return (duration: number) => {
+    const delay = cursor
+    cursor += duration
+    return delay
+  }
+}
 
 interface UseCaseCarouselProps {
   onNext: () => void
@@ -37,12 +48,6 @@ export function UseCaseCarousel({ onNext }: UseCaseCarouselProps) {
 
   return (
     <ScreenShell
-      top={
-        <div className="flex flex-col items-center gap-3 text-center">
-          <LunaLogo withWordmark />
-          <h1 className="text-[15px] font-semibold">איפה לונה יכולה לעזור לך?</h1>
-        </div>
-      }
       footer={
         <>
           <div className="flex justify-center gap-1.5 pb-1">
@@ -64,24 +69,43 @@ export function UseCaseCarousel({ onNext }: UseCaseCarouselProps) {
         </>
       }
     >
-      <Slide />
+      <MotionConfig reducedMotion="user">
+        <Slide />
+      </MotionConfig>
     </ScreenShell>
   )
 }
 
 function ReminderSlide() {
+  const next = createSequencer()
+  const satDelay = next(350)
+  const requestDelay = next(1150) // bubble appears, settles, and the read receipt turns blue
+  const sunDelay = next(350)
+  const replyDelay = next(TYPING_MS + 250)
+
   return (
     <div className="flex flex-col gap-3">
-      <ExampleQuote>"תמיד נזכרת להתקשר לחברת החשמל כשהם כבר סגורים, אז כבר שבועיים שאני לא מגיעה לזה."</ExampleQuote>
+      <div className="flex flex-col gap-1 text-right">
+        <h2 className="text-[14px] font-bold leading-snug">המחשבות שלך לא צריכות לחכות לבוקר.</h2>
+        <p className="text-[13px] leading-relaxed text-muted">
+          עלה לך משהו לראש? כתבי אותו ללונה. היא כבר תזכיר לך בזמן הנכון.
+        </p>
+      </div>
       <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
-        <OutgoingBubble time="23:56">תזכירי לי להתקשר לחברת החשמל</OutgoingBubble>
-        <LunaBubble time="08:13">
-          רוצה לנצל את הדרך לעבודה כדי להתקשר לחברת החשמל?{' '}
+        <TimeDivider delay={satDelay}>שבת</TimeDivider>
+        <OutgoingBubble time="23:47" read delay={requestDelay}>
+          לא לשכוח להזמין טכנאי למזגן.
+        </OutgoingBubble>
+        <TimeDivider delay={sunDelay}>ראשון</TimeDivider>
+        <LunaBubble time="09:15" delay={replyDelay}>
+          בוקר טוב, עכשיו זה זמן טוב להתקשר לטכנאי.
+          <br />
+          📞 מספר טלפון:{' '}
           <span dir="ltr" className="text-[#0088CC] underline">
-            03-1234567
+            052-1234567
           </span>
           <br />
-          פעילים <span dir="ltr">08:00–13:00</span>
+          🕒 שעות פעילות: <span dir="ltr">08:00–18:00</span>
         </LunaBubble>
       </div>
     </div>
@@ -89,34 +113,96 @@ function ReminderSlide() {
 }
 
 function GroupForwardSlide() {
+  const next = createSequencer()
+  const groupMsgDelay = next(TYPING_MS + 2800) // teacher's message arrives, then holds so it's readable
+  const switchDelay = next(1) // window switches over to the Luna conversation
+
+  const lunaNext = createSequencer(200)
+  const forwardedDelay = lunaNext(450)
+  const confirmDelay = lunaNext(TYPING_MS + 250)
+  const todayDelay = lunaNext(250)
+  const reminderDelay = lunaNext(TYPING_MS + 250)
+
+  const [view, setView] = useState<'group' | 'luna'>('group')
+
+  useEffect(() => {
+    setView('group')
+    const timer = setTimeout(() => setView('luna'), switchDelay)
+    return () => clearTimeout(timer)
+  }, [switchDelay])
+
   return (
     <div className="flex flex-col gap-3">
       <ExampleQuote>
         כשמגיעה הודעה מהגן בדיוק כשאת עם הילדים, והיא נעלמת בתוך כל ההודעות — ואין סיכוי שתזכרי אותה למחר בבוקר.
       </ExampleQuote>
-      <ExternalSnippet icon="🏫" source="גן של רוני" sender="שירי, הגננת">
-        מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
-      </ExternalSnippet>
-      <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
-        <OutgoingBubble time="17:57" forwarded read>
-          מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
-        </OutgoingBubble>
-        <TimeDivider>למחרת בבוקר</TimeDivider>
-        <LunaBubble>היי, זכרת לשים לרוני חולצה לבנה? 😊</LunaBubble>
-      </div>
+      <motion.div layout className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 shadow-sm font-whatsapp">
+        <AnimatePresence mode="wait">
+          {view === 'group' ? (
+            <motion.div
+              key="group-view"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="flex flex-col gap-2"
+            >
+              <div className="mb-0.5 flex items-center gap-1.5">
+                <span aria-hidden="true">🏫</span>
+                <span className="text-[13px] font-bold">גן של רוני</span>
+              </div>
+              <ChatMessage
+                incoming
+                delay={groupMsgDelay}
+                className="self-start rounded-2xl rounded-tr-[3px] bg-card px-2.5 py-1.5 text-[12px] max-w-[90%]"
+              >
+                <div className="mb-0.5 text-[11px] font-bold text-primary">שירי, הגננת של רוני</div>
+                מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
+              </ChatMessage>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="luna-view"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: 'easeInOut' }}
+              className="flex flex-col gap-2"
+            >
+              <div className="mb-0.5 flex items-center gap-1.5">
+                <LunaLogo size={20} />
+                <span className="text-[13px] font-bold">לונה</span>
+              </div>
+              <OutgoingBubble time="17:57" forwarded delay={forwardedDelay}>
+                מחר מצטלמים לסוף שנה, נא לשלוח את הילדים בחולצה לבנה
+              </OutgoingBubble>
+              <LunaBubble delay={confirmDelay}>📅 מעולה, הוספתי!</LunaBubble>
+              <TimeDivider delay={todayDelay}>היום</TimeDivider>
+              <LunaBubble delay={reminderDelay}>היי, זכרת לשים לרוני חולצה לבנה? 😊</LunaBubble>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </div>
   )
 }
 
 function InsuranceSlide() {
+  const next = createSequencer()
+  const voiceDelay = next(450)
+  const firstReplyDelay = next(TYPING_MS + 250)
+  const laterDelay = next(350)
+  const secondReplyDelay = next(TYPING_MS + 250)
+
   return (
     <div className="flex flex-col gap-3">
       <ExampleQuote>סופסוף זכרת להגיש את המסמכים לביטוח, ועכשיו את צריכה לוודא שהכסף נכנס — יש לזה 28 ימי עסקים.</ExampleQuote>
       <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
-        <VoiceMessageBubble duration="1:30" time="09:12" />
-        <LunaBubble time="09:13">קיבלתי ❤️ מעכשיו זה עליי, לא צריך לזכור יותר.</LunaBubble>
-        <TimeDivider>22 ימים אחר כך</TimeDivider>
-        <LunaBubble>
+        <VoiceMessageBubble duration="1:30" time="09:12" delay={voiceDelay} />
+        <LunaBubble time="09:13" delay={firstReplyDelay}>
+          קיבלתי ❤️ מעכשיו זה עליי, לא צריך לזכור יותר.
+        </LunaBubble>
+        <TimeDivider delay={laterDelay}>22 ימים אחר כך</TimeDivider>
+        <LunaBubble delay={secondReplyDelay}>
           הכסף הגיע לחשבון הבנק שלך בדיוק כמו שהיה צריך — סה״כ 4 התייעצויות שונות בסכום כולל של{' '}
           <span dir="ltr">2,756 ₪</span>.
         </LunaBubble>
@@ -126,19 +212,24 @@ function InsuranceSlide() {
 }
 
 function PayboxSlide() {
+  const next = createSequencer()
+  const snippetDelay = next(500)
+  const forwardedDelay = next(500)
+  const replyDelay = next(TYPING_MS + 250)
+
   return (
     <div className="flex flex-col gap-3">
       <ExampleQuote>
         מישהי בקבוצה של הגן שולחת לינק לתשלום לוועד, ואת אומרת לעצמך שתשלמי בערב — וכמובן שזה נשכח עד השבוע הבא.
       </ExampleQuote>
-      <ExternalSnippet icon="💜" source="קבוצת ההורים · גן רוני" sender="מיכל">
+      <ExternalSnippet icon="💜" source="קבוצת ההורים · גן רוני" sender="מיכל" delay={snippetDelay}>
         לינק לתשלום ועד הגן החודש — מי שעוד לא שילמה 🙏
       </ExternalSnippet>
       <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
-        <OutgoingBubble time="18:24" forwarded read>
+        <OutgoingBubble time="18:24" forwarded read delay={forwardedDelay}>
           לינק לתשלום ועד הגן החודש — מי שעוד לא שילמה 🙏
         </OutgoingBubble>
-        <LunaBubble time="21:00">
+        <LunaBubble time="21:00" delay={replyDelay}>
           היי, ראיתי שיש לך ערב פנוי — רוצה רגע לשלם את ועד הגן?{' '}
           <span dir="ltr" className="text-[#0088CC] underline">
             paybox.co.il/pay/8842
