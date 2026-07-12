@@ -10,6 +10,7 @@ interface OnboardingState {
 
 type Action =
   | { type: 'set-user-name'; name: string }
+  | { type: 'set-phone-number'; phoneNumber: string }
   | { type: 'set-household'; household: HouseholdMember[] }
   | { type: 'set-partner-name'; name: string }
   | { type: 'add-child' }
@@ -29,6 +30,8 @@ function reducer(state: OnboardingState, action: Action): OnboardingState {
   switch (action.type) {
     case 'set-user-name':
       return { ...state, answers: { ...state.answers, userName: action.name } }
+    case 'set-phone-number':
+      return { ...state, answers: { ...state.answers, phoneNumber: action.phoneNumber } }
     case 'set-household':
       return { ...state, answers: { ...state.answers, household: action.household } }
     case 'set-partner-name':

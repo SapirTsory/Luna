@@ -5,6 +5,7 @@ import { WelcomeScreen } from './screens/WelcomeScreen'
 import { NameScreen } from './screens/NameScreen'
 import { UseCaseCarousel } from './screens/UseCaseCarousel'
 import { CalendarConnectScreen } from './screens/CalendarConnectScreen'
+import { PhoneScreen } from './screens/PhoneScreen'
 import { PrepScreen } from './screens/PrepScreen'
 import { HouseholdScreen } from './screens/HouseholdScreen'
 import { NamesFormScreen } from './screens/NamesFormScreen'
@@ -72,6 +73,13 @@ export function OnboardingFlow() {
         <CalendarConnectScreen
           connected={answers.calendarConnected}
           onConnect={() => dispatch({ type: 'set-calendar-connected', connected: true })}
+          onNext={goNext}
+        />
+      )}
+      {currentStep.id === 'phone' && (
+        <PhoneScreen
+          value={answers.phoneNumber}
+          onChange={(phoneNumber) => dispatch({ type: 'set-phone-number', phoneNumber })}
           onNext={goNext}
         />
       )}

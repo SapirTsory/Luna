@@ -14,6 +14,7 @@ export const STEPS: StepConfig[] = [
   { id: 'name', part: null, isVisible: always },
   { id: 'usecases', part: null, isVisible: always },
   { id: 'calendar-connect', part: null, isVisible: always },
+  { id: 'phone', part: null, isVisible: always },
   { id: 'prep', part: null, isVisible: always },
   { id: 'household', part: 1, isVisible: always },
   { id: 'names', part: 1, isVisible: (a) => a.household.includes('partner') || a.household.includes('kids') },
