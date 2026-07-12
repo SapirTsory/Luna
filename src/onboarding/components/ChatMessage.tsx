@@ -4,6 +4,8 @@ import type { ReactNode } from 'react'
 
 export const TYPING_MS = 900
 
+export const dateChipClass = 'self-center rounded-full bg-card px-3 py-1 text-[12px] font-medium text-ink shadow-sm'
+
 const SPRING = { type: 'spring', stiffness: 420, damping: 26 } as const
 
 interface RevealProps {

@@ -18,7 +18,7 @@ export function CompletionScreen({ answers }: CompletionScreenProps) {
       <div className="text-2xl" aria-hidden="true">
         🌙✨
       </div>
-      <h1 className="font-serif text-xl font-semibold leading-snug">
+      <h1 className="text-xl font-semibold leading-snug">
         מוכנה!
         <br />
         אני כבר מכירה אותך קצת

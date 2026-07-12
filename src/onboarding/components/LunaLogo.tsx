@@ -17,7 +17,7 @@ export function LunaLogo({ size = 34, withWordmark = false, className = '' }: Lu
         </g>
       </svg>
       {withWordmark && (
-        <span className="font-bold tracking-[0.3em] text-primary text-xl ps-[0.3em]">LUNA</span>
+        <span className="font-bold tracking-[0.26em] text-primary text-sm ps-[0.26em]">LUNA</span>
       )}
     </div>
   )
