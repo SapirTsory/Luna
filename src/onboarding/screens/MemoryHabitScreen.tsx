@@ -1,8 +1,9 @@
 import { ChatBubble } from '../components/ChatBubble'
-import { ChoiceGroup } from '../components/ChoiceGroup'
 import { PillButton } from '../components/PillButton'
-import { ProgressBar } from '../components/ProgressBar'
 import { ScreenShell } from '../components/ScreenShell'
+import { useAnswer } from '../context/OnboardingContext'
+import { ChoiceField } from '../fields/ChoiceField'
+import { StepProgress } from '../fields/StepProgress'
 import type { MemoryHabit } from '../types'
 
 const OPTIONS: { id: MemoryHabit; label: string }[] = [
@@ -14,16 +15,15 @@ const OPTIONS: { id: MemoryHabit; label: string }[] = [
 ]
 
 interface MemoryHabitScreenProps {
-  questionIndex: number
-  value: MemoryHabit | null
-  onChange: (value: MemoryHabit) => void
   onNext: () => void
 }
 
-export function MemoryHabitScreen({ questionIndex, value, onChange, onNext }: MemoryHabitScreenProps) {
+export function MemoryHabitScreen({ onNext }: MemoryHabitScreenProps) {
+  const [value] = useAnswer('memoryHabit')
+
   return (
     <ScreenShell
-      top={<ProgressBar part={2} partLabel="איך את עובדת היום" questionIndex={questionIndex} />}
+      top={<StepProgress />}
       footer={
         <PillButton onClick={onNext} disabled={!value}>
           המשך
@@ -31,14 +31,7 @@ export function MemoryHabitScreen({ questionIndex, value, onChange, onNext }: Me
       }
     >
       <ChatBubble>כל אחת מנהלת את הראש שלה קצת אחרת 😊 כשקופץ לך משהו שאת לא רוצה לשכוח, מה את עושה בדרך כלל?</ChatBubble>
-      <ChoiceGroup
-        name="memory-habit"
-        mode="single"
-        layout="grid"
-        options={OPTIONS}
-        value={value ? [value] : []}
-        onChange={(v) => onChange(v[0] as MemoryHabit)}
-      />
+      <ChoiceField answerKey="memoryHabit" name="memory-habit" mode="single" layout="grid" options={OPTIONS} />
     </ScreenShell>
   )
 }

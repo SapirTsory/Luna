@@ -1,8 +1,9 @@
 import { ChatBubble } from '../components/ChatBubble'
-import { ChoiceGroup } from '../components/ChoiceGroup'
 import { PillButton } from '../components/PillButton'
-import { ProgressBar } from '../components/ProgressBar'
 import { ScreenShell } from '../components/ScreenShell'
+import { useAnswer } from '../context/OnboardingContext'
+import { ChoiceField } from '../fields/ChoiceField'
+import { StepProgress } from '../fields/StepProgress'
 import type { CalendarHabit } from '../types'
 
 const OPTIONS: { id: CalendarHabit; label: string }[] = [
@@ -12,16 +13,15 @@ const OPTIONS: { id: CalendarHabit; label: string }[] = [
 ]
 
 interface CalendarHabitScreenProps {
-  questionIndex: number
-  value: CalendarHabit | null
-  onChange: (value: CalendarHabit) => void
   onNext: () => void
 }
 
-export function CalendarHabitScreen({ questionIndex, value, onChange, onNext }: CalendarHabitScreenProps) {
+export function CalendarHabitScreen({ onNext }: CalendarHabitScreenProps) {
+  const [value] = useAnswer('calendarHabit')
+
   return (
     <ScreenShell
-      top={<ProgressBar part={2} partLabel="איך את עובדת היום" questionIndex={questionIndex} />}
+      top={<StepProgress />}
       footer={
         <PillButton onClick={onNext} disabled={!value}>
           המשך
@@ -29,13 +29,7 @@ export function CalendarHabitScreen({ questionIndex, value, onChange, onNext }: 
       }
     >
       <ChatBubble>ומה לגבי היומן שלך?</ChatBubble>
-      <ChoiceGroup
-        name="calendar-habit"
-        mode="single"
-        options={OPTIONS}
-        value={value ? [value] : []}
-        onChange={(v) => onChange(v[0] as CalendarHabit)}
-      />
+      <ChoiceField answerKey="calendarHabit" name="calendar-habit" mode="single" options={OPTIONS} />
     </ScreenShell>
   )
 }

@@ -1,8 +1,9 @@
 import { ChatBubble } from '../components/ChatBubble'
-import { ChoiceGroup } from '../components/ChoiceGroup'
 import { PillButton } from '../components/PillButton'
-import { ProgressBar } from '../components/ProgressBar'
 import { ScreenShell } from '../components/ScreenShell'
+import { useAnswer } from '../context/OnboardingContext'
+import { ChoiceField } from '../fields/ChoiceField'
+import { StepProgress } from '../fields/StepProgress'
 import type { HouseholdMember } from '../types'
 
 const OPTIONS: { id: HouseholdMember; label: string }[] = [
@@ -14,31 +15,23 @@ const OPTIONS: { id: HouseholdMember; label: string }[] = [
 ]
 
 interface HouseholdScreenProps {
-  questionIndex: number
-  value: HouseholdMember[]
-  onChange: (value: HouseholdMember[]) => void
   onNext: () => void
 }
 
-export function HouseholdScreen({ questionIndex, value, onChange, onNext }: HouseholdScreenProps) {
+export function HouseholdScreen({ onNext }: HouseholdScreenProps) {
+  const [household] = useAnswer('household')
+
   return (
     <ScreenShell
-      top={<ProgressBar part={1} partLabel="מכירים — האנשים החשובים" questionIndex={questionIndex} />}
+      top={<StepProgress />}
       footer={
-        <PillButton onClick={onNext} disabled={value.length === 0}>
+        <PillButton onClick={onNext} disabled={household.length === 0}>
           המשך
         </PillButton>
       }
     >
       <ChatBubble>בואי נכיר קצת — עם מי את גרה בבית?</ChatBubble>
-      <ChoiceGroup
-        name="household"
-        mode="multi"
-        layout="grid"
-        options={OPTIONS}
-        value={value}
-        onChange={(v) => onChange(v as HouseholdMember[])}
-      />
+      <ChoiceField answerKey="household" name="household" mode="multi" layout="grid" options={OPTIONS} />
     </ScreenShell>
   )
 }

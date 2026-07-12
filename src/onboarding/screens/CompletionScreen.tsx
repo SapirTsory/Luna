@@ -1,14 +1,12 @@
 import { PillButton } from '../components/PillButton'
 import { ScreenShell } from '../components/ScreenShell'
 import { WhatsAppIcon } from '../components/WhatsAppIcon'
+import { useOnboardingState } from '../context/OnboardingContext'
 import { buildWhatsAppHandoffUrl, submitOnboarding } from '../submitOnboarding'
-import type { OnboardingAnswers } from '../types'
 
-interface CompletionScreenProps {
-  answers: OnboardingAnswers
-}
+export function CompletionScreen() {
+  const { answers } = useOnboardingState()
 
-export function CompletionScreen({ answers }: CompletionScreenProps) {
   function handleHandoff() {
     submitOnboarding(answers)
     window.location.href = buildWhatsAppHandoffUrl()

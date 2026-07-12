@@ -1,8 +1,9 @@
 import { ChatBubble } from '../components/ChatBubble'
-import { ChoiceGroup } from '../components/ChoiceGroup'
 import { PillButton } from '../components/PillButton'
-import { ProgressBar } from '../components/ProgressBar'
 import { ScreenShell } from '../components/ScreenShell'
+import { useAnswer } from '../context/OnboardingContext'
+import { ChoiceField } from '../fields/ChoiceField'
+import { StepProgress } from '../fields/StepProgress'
 import type { FocusArea } from '../types'
 
 const OPTIONS: { id: FocusArea; label: string }[] = [
@@ -15,16 +16,15 @@ const OPTIONS: { id: FocusArea; label: string }[] = [
 ]
 
 interface FocusAreaScreenProps {
-  questionIndex: number
-  value: FocusArea[]
-  onChange: (value: FocusArea[]) => void
   onNext: () => void
 }
 
-export function FocusAreaScreen({ questionIndex, value, onChange, onNext }: FocusAreaScreenProps) {
+export function FocusAreaScreen({ onNext }: FocusAreaScreenProps) {
+  const [value] = useAnswer('focusAreas')
+
   return (
     <ScreenShell
-      top={<ProgressBar part={3} partLabel="לסיום" questionIndex={questionIndex} />}
+      top={<StepProgress />}
       footer={
         <PillButton onClick={onNext} disabled={value.length === 0}>
           המשך
@@ -32,14 +32,7 @@ export function FocusAreaScreen({ questionIndex, value, onChange, onNext }: Focu
       }
     >
       <ChatBubble>יש לי מטרה אחת: להוריד לך עומס מהראש. איפה את הכי רוצה שארגיש את זה?</ChatBubble>
-      <ChoiceGroup
-        name="focus-areas"
-        mode="multi"
-        layout="grid"
-        options={OPTIONS}
-        value={value}
-        onChange={(v) => onChange(v as FocusArea[])}
-      />
+      <ChoiceField answerKey="focusAreas" name="focus-areas" mode="multi" layout="grid" options={OPTIONS} />
     </ScreenShell>
   )
 }

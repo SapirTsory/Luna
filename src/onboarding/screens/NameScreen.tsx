@@ -1,19 +1,20 @@
 import { PillButton } from '../components/PillButton'
 import { ScreenShell } from '../components/ScreenShell'
 import { TextField } from '../components/TextField'
+import { useAnswer } from '../context/OnboardingContext'
 
 interface NameScreenProps {
-  value: string
-  onChange: (name: string) => void
   onNext: () => void
 }
 
-export function NameScreen({ value, onChange, onNext }: NameScreenProps) {
+export function NameScreen({ onNext }: NameScreenProps) {
+  const [userName, setUserName] = useAnswer('userName')
+
   return (
     <ScreenShell
       centered
       footer={
-        <PillButton onClick={onNext} disabled={value.trim().length === 0}>
+        <PillButton onClick={onNext} disabled={userName.trim().length === 0}>
           המשך
         </PillButton>
       }
@@ -29,8 +30,8 @@ export function NameScreen({ value, onChange, onNext }: NameScreenProps) {
           label="השם שלך"
           hideLabel
           placeholder="השם שלך"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
           autoFocus
           className="text-center"
         />

@@ -2,21 +2,21 @@ import { useState } from 'react'
 import { PillButton } from '../components/PillButton'
 import { ScreenShell } from '../components/ScreenShell'
 import { SkipLink } from '../components/SkipLink'
+import { useAnswer } from '../context/OnboardingContext'
 
 interface CalendarConnectScreenProps {
-  connected: boolean
-  onConnect: () => void
   onNext: () => void
 }
 
-export function CalendarConnectScreen({ connected, onConnect, onNext }: CalendarConnectScreenProps) {
+export function CalendarConnectScreen({ onNext }: CalendarConnectScreenProps) {
+  const [connected, setConnected] = useAnswer('calendarConnected')
   const [connecting, setConnecting] = useState(false)
 
   function handleConnect() {
     setConnecting(true)
     // Stubbed: no backend/Google OAuth wired up yet — simulate the round trip.
     window.setTimeout(() => {
-      onConnect()
+      setConnected(true)
       setConnecting(false)
       onNext()
     }, 700)

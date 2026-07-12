@@ -1,17 +1,17 @@
 import { PillButton } from '../components/PillButton'
 import { ScreenShell } from '../components/ScreenShell'
 import { TextField } from '../components/TextField'
+import { useAnswer } from '../context/OnboardingContext'
 
 interface PhoneScreenProps {
-  value: string
-  onChange: (phoneNumber: string) => void
   onNext: () => void
 }
 
 const MIN_DIGITS = 9
 
-export function PhoneScreen({ value, onChange, onNext }: PhoneScreenProps) {
-  const digitCount = value.replace(/\D/g, '').length
+export function PhoneScreen({ onNext }: PhoneScreenProps) {
+  const [phoneNumber, setPhoneNumber] = useAnswer('phoneNumber')
+  const digitCount = phoneNumber.replace(/\D/g, '').length
 
   return (
     <ScreenShell
@@ -36,8 +36,8 @@ export function PhoneScreen({ value, onChange, onNext }: PhoneScreenProps) {
           inputMode="tel"
           autoComplete="tel"
           placeholder="050-1234567"
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
           autoFocus
           className="text-center"
         />
