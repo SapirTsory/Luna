@@ -19,6 +19,8 @@
   --color-whatsapp-bg: #e5ded3;
   --color-whatsapp-bubble: #dcf8c6;
   --color-whatsapp-accent: #7a9e76;
+  --color-whatsapp-cta: #075e54;
+  --color-whatsapp-cta-soft: #0b7a6a;
 
   --animate-fade-slide: fade-slide 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 
