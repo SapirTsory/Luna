@@ -133,9 +133,10 @@ function GroupForwardSlide() {
 
   return (
     <div className="flex flex-col gap-3">
-      <ExampleQuote>
-        כשמגיעה הודעה מהגן בדיוק כשאת עם הילדים, והיא נעלמת בתוך כל ההודעות — ואין סיכוי שתזכרי אותה למחר בבוקר.
-      </ExampleQuote>
+      <div className="flex flex-col gap-1 text-right">
+        <h2 className="text-[14px] font-bold leading-snug">לא צריך לזכור את כל מה שעובר בוואטסאפ.</h2>
+        <p className="text-[13px] leading-relaxed text-muted">לונה תזכור את זה בשבילך.</p>
+      </div>
       <motion.div layout className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 shadow-sm font-whatsapp">
         <AnimatePresence mode="wait">
           {view === 'group' ? (
