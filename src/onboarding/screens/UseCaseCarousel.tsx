@@ -48,11 +48,6 @@ export function UseCaseCarousel({ onNext }: UseCaseCarouselProps) {
 
   return (
     <ScreenShell
-      top={
-        <div className="flex justify-center">
-          <LunaLogo withWordmark />
-        </div>
-      }
       footer={
         <>
           <div className="flex justify-center gap-1.5 pb-1">
