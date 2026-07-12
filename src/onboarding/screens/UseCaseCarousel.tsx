@@ -1,14 +1,7 @@
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { ChatMessage, TYPING_MS } from '../components/ChatMessage'
-import {
-  ExampleQuote,
-  ExternalSnippet,
-  LunaBubble,
-  OutgoingBubble,
-  TimeDivider,
-  VoiceMessageBubble,
-} from '../components/ExampleSlideParts'
+import { LunaBubble, OutgoingBubble, TimeDivider } from '../components/ExampleSlideParts'
 import { LunaLogo } from '../components/LunaLogo'
 import { PillButton } from '../components/PillButton'
 import { ScreenShell } from '../components/ScreenShell'
@@ -31,7 +24,7 @@ const SLIDES = [
   { label: 'דוגמה 1', Component: ReminderSlide },
   { label: 'דוגמה 2', Component: GroupForwardSlide },
   { label: 'דוגמה 3', Component: InsuranceSlide },
-  { label: 'דוגמה 4', Component: PayboxSlide },
+  { label: 'דוגמה 4', Component: DaycareDeadlineSlide },
 ]
 
 export function UseCaseCarousel({ onNext }: UseCaseCarouselProps) {
@@ -189,51 +182,74 @@ function GroupForwardSlide() {
 
 function InsuranceSlide() {
   const next = createSequencer()
-  const voiceDelay = next(450)
+  const requestDelay = next(450)
   const firstReplyDelay = next(TYPING_MS + 250)
   const laterDelay = next(350)
   const secondReplyDelay = next(TYPING_MS + 250)
 
   return (
     <div className="flex flex-col gap-3">
-      <ExampleQuote>סופסוף זכרת להגיש את המסמכים לביטוח, ועכשיו את צריכה לוודא שהכסף נכנס — יש לזה 28 ימי עסקים.</ExampleQuote>
+      <div className="flex flex-col gap-1 text-right">
+        <h2 className="text-[14px] font-bold leading-snug">החלק הקשה הוא לא להתחיל.</h2>
+        <p className="text-[13px] leading-relaxed text-muted">לונה תמשיך לעקוב, כדי שאת תוכלי להמשיך הלאה.</p>
+      </div>
       <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
-        <VoiceMessageBubble duration="1:30" time="09:12" delay={voiceDelay} />
+        <OutgoingBubble time="09:12" delay={requestDelay}>
+          הגשתי את המסמכים להחזר מהביטוח.
+        </OutgoingBubble>
         <LunaBubble time="09:13" delay={firstReplyDelay}>
-          קיבלתי ❤️ מעכשיו זה עליי, לא צריך לזכור יותר.
+          קיבלתי ❤️ מעכשיו אני אעקוב אחרי זה.
         </LunaBubble>
         <TimeDivider delay={laterDelay}>22 ימים אחר כך</TimeDivider>
         <LunaBubble delay={secondReplyDelay}>
-          הכסף הגיע לחשבון הבנק שלך בדיוק כמו שהיה צריך — סה״כ 4 התייעצויות שונות בסכום כולל של{' '}
-          <span dir="ltr">2,756 ₪</span>.
+          עברו 22 ימים מאז שהגשת את הבקשה.
+          <br />
+          הכסף כבר נכנס לחשבון?
+          <br />
+          <br />
+          את אמורה לראות החזר של <span dir="ltr">2,245 ₪</span> מחברת הראל.
         </LunaBubble>
       </div>
     </div>
   )
 }
 
-function PayboxSlide() {
+function DaycareDeadlineSlide() {
   const next = createSequencer()
-  const snippetDelay = next(500)
+  const dateDelay = next(350)
   const forwardedDelay = next(500)
+  const laterDateDelay = next(350)
   const replyDelay = next(TYPING_MS + 250)
 
   return (
     <div className="flex flex-col gap-3">
-      <ExampleQuote>
-        מישהי בקבוצה של הגן שולחת לינק לתשלום לוועד, ואת אומרת לעצמך שתשלמי בערב — וכמובן שזה נשכח עד השבוע הבא.
-      </ExampleQuote>
-      <ExternalSnippet icon="💜" source="קבוצת ההורים · גן רוני" sender="מיכל" delay={snippetDelay}>
-        לינק לתשלום ועד הגן החודש — מי שעוד לא שילמה 🙏
-      </ExternalSnippet>
+      <div className="flex flex-col gap-1 text-right">
+        <h2 className="text-[14px] font-bold leading-snug">יש דברים שפשוט לא כדאי לפספס.</h2>
+        <p className="text-[13px] leading-relaxed text-muted">לונה תוודא שתיזכרי לפני הדדליין, לא אחריו.</p>
+      </div>
       <div className="flex flex-col gap-2 rounded-2xl bg-whatsapp-bg p-3 font-whatsapp">
-        <OutgoingBubble time="18:24" forwarded read delay={forwardedDelay}>
-          לינק לתשלום ועד הגן החודש — מי שעוד לא שילמה 🙏
-        </OutgoingBubble>
-        <LunaBubble time="21:00" delay={replyDelay}>
-          היי, ראיתי שיש לך ערב פנוי — רוצה רגע לשלם את ועד הגן?{' '}
+        <TimeDivider delay={dateDelay}>1 ביולי</TimeDivider>
+        <OutgoingBubble time="09:14" forwarded read delay={forwardedDelay}>
+          הרשמה לצהרון
+          <br />
+          📅 עד 31.8
+          <br />
+          🔗{' '}
           <span dir="ltr" className="text-[#0088CC] underline">
-            paybox.co.il/pay/8842
+            gan.co.il/tzaharon
+          </span>
+        </OutgoingBubble>
+        <TimeDivider delay={laterDateDelay}>31 באוגוסט</TimeDivider>
+        <LunaBubble delay={replyDelay}>
+          היום זה היום האחרון להרשמה לצהרון.
+          <br />
+          <br />
+          אם עדיין לא נרשמת, זה זמן טוב לעשות את זה.
+          <br />
+          <br />
+          🔗{' '}
+          <span dir="ltr" className="text-[#0088CC] underline">
+            gan.co.il/tzaharon
           </span>
         </LunaBubble>
       </div>
