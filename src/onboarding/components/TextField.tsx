@@ -2,13 +2,14 @@ import type { InputHTMLAttributes } from 'react'
 
 interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string
+  hideLabel?: boolean
 }
 
-export function TextField({ label, id, className = '', ...inputProps }: TextFieldProps) {
+export function TextField({ label, hideLabel = false, id, className = '', ...inputProps }: TextFieldProps) {
   const inputId = id ?? `field-${label}`
   return (
     <div className="flex min-w-0 flex-1 flex-col gap-1">
-      <label htmlFor={inputId} className="px-0.5 text-[13px] font-semibold text-muted">
+      <label htmlFor={inputId} className={`px-0.5 text-[13px] font-semibold text-muted ${hideLabel ? 'sr-only' : ''}`}>
         {label}
       </label>
       <input

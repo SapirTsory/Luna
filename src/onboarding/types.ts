@@ -17,6 +17,7 @@ export interface KidsContact {
 }
 
 export interface OnboardingAnswers {
+  userName: string
   household: HouseholdMember[]
   partnerName: string
   children: ChildInfo[]
@@ -28,6 +29,7 @@ export interface OnboardingAnswers {
 }
 
 export const initialAnswers: OnboardingAnswers = {
+  userName: '',
   household: [],
   partnerName: '',
   children: [],
@@ -40,6 +42,7 @@ export const initialAnswers: OnboardingAnswers = {
 
 export type StepId =
   | 'welcome'
+  | 'name'
   | 'usecases'
   | 'calendar-connect'
   | 'prep'

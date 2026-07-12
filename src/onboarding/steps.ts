@@ -11,6 +11,7 @@ const always = () => true
 
 export const STEPS: StepConfig[] = [
   { id: 'welcome', part: null, isVisible: always },
+  { id: 'name', part: null, isVisible: always },
   { id: 'usecases', part: null, isVisible: always },
   { id: 'calendar-connect', part: null, isVisible: always },
   { id: 'prep', part: null, isVisible: always },

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { PART_LABELS } from './steps'
 import { useOnboardingState } from './state'
 import { WelcomeScreen } from './screens/WelcomeScreen'
+import { NameScreen } from './screens/NameScreen'
 import { UseCaseCarousel } from './screens/UseCaseCarousel'
 import { CalendarConnectScreen } from './screens/CalendarConnectScreen'
 import { PrepScreen } from './screens/PrepScreen'
@@ -59,6 +60,13 @@ export function OnboardingFlow() {
       </div>
 
       {currentStep.id === 'welcome' && <WelcomeScreen onNext={goNext} />}
+      {currentStep.id === 'name' && (
+        <NameScreen
+          value={answers.userName}
+          onChange={(name) => dispatch({ type: 'set-user-name', name })}
+          onNext={goNext}
+        />
+      )}
       {currentStep.id === 'usecases' && <UseCaseCarousel onNext={goNext} />}
       {currentStep.id === 'calendar-connect' && (
         <CalendarConnectScreen
