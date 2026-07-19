@@ -1,0 +1,65 @@
+:root {
+  --font-body: 'IBM Plex Sans Hebrew', system-ui, sans-serif;
+  --font-display: 'Frank Ruhl Libre', serif;
+
+  --color-canvas: #efede8;
+  --color-screen: #fbf9f4;
+  --color-ink: #2e2822;
+  --color-ink-soft: #8c8175;
+  --color-ink-faint: #a99b8c;
+  --color-ink-faintest: #c9bda9;
+
+  --color-accent: #a05a3b;
+  --color-accent-light: #c2714d;
+  --color-accent-bg: #fbefe8;
+
+  --color-surface-muted: #f6f3ec;
+  --color-track: #f0eae0;
+  --color-border-soft: #e7dfd0;
+  --color-border-softer: #efe9dd;
+  --color-divider: #eae3d6;
+
+  --color-glow-bg: #fef6e4;
+  --color-glow-ring: #f6d9a8;
+  --color-icon-stroke: #7a6a52;
+
+  --shadow-card: 0 3px 10px rgba(160, 90, 59, 0.15);
+  --shadow-dock: 0 8px 20px rgba(60, 45, 30, 0.16);
+  --shadow-dock-soft: 0 6px 16px rgba(60, 45, 30, 0.12);
+  --shadow-screen: 0 8px 26px rgba(60, 45, 30, 0.12);
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-canvas);
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+button {
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

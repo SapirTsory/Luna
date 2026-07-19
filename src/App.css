@@ -1,0 +1,323 @@
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  background: var(--color-canvas);
+}
+
+.luna-screen {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100dvh;
+  background: var(--color-screen);
+}
+
+@media (min-width: 431px) {
+  .luna-screen {
+    min-height: min(844px, 100dvh);
+    margin: 24px 0;
+    border-radius: 34px;
+    box-shadow: var(--shadow-screen);
+    overflow: hidden;
+  }
+}
+
+.luna-scroll {
+  height: 100%;
+  min-height: inherit;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 34px 22px 32px 84px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 359px) {
+  .luna-scroll {
+    padding-left: 74px;
+  }
+}
+
+/* ---------- header ---------- */
+
+.luna-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+.luna-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--color-accent-light), var(--color-accent));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-screen);
+  font-size: 16px;
+  flex: none;
+}
+
+.luna-wordmark {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.luna-title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+/* ---------- sections ---------- */
+
+.luna-section {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.luna-section-label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+}
+
+.luna-section-label--accent {
+  color: var(--color-accent);
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* ---------- cards ---------- */
+
+.task-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 13px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.task-card--new {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  border: 1.5px solid var(--color-accent);
+  box-shadow: var(--shadow-card);
+}
+
+.task-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-card__badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: var(--color-accent-bg);
+  border-radius: 100px;
+  padding: 3px 9px;
+}
+
+.task-card__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.task-card__title--plain {
+  font-weight: 400;
+}
+
+.task-card__time {
+  font-size: 11px;
+  color: var(--color-ink-soft);
+  flex: none;
+  white-space: nowrap;
+}
+
+.task-card--muted {
+  background: var(--color-surface-muted);
+  display: block;
+}
+
+.task-card__muted-text {
+  font-size: 13px;
+  color: var(--color-ink-faint);
+}
+
+/* recurring session progress card */
+
+.session-ring {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.session-ring__inner {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.session-card__body {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* ---------- floating docks ---------- */
+
+.rhythm-dock {
+  position: absolute;
+  left: 14px;
+  top: 150px;
+  background: var(--color-screen);
+  border: 1px solid var(--color-border-soft);
+  border-radius: 26px;
+  padding: 14px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-dock);
+}
+
+.rhythm-dock__divider {
+  height: 1px;
+  background: var(--color-divider);
+  margin: 0 4px;
+  border: none;
+}
+
+.dock-icon {
+  border: none;
+  padding: 0;
+  cursor: default;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.dock-icon::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+}
+
+.dock-icon--xl {
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+}
+
+.dock-icon--lg {
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+}
+
+.dock-icon--md {
+  width: 32px;
+  height: 32px;
+  font-size: 17px;
+}
+
+.dock-icon--sm {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.dock-icon--status-urgent {
+  background: var(--color-glow-bg);
+  box-shadow: 0 0 0 3px var(--color-glow-ring);
+  animation: glow-ring 3s ease-in-out infinite;
+}
+
+.dock-icon--status-soon {
+  background: var(--color-screen);
+  filter: saturate(0.7);
+  opacity: 0.85;
+}
+
+.dock-icon--status-done {
+  background: var(--color-screen);
+  filter: grayscale(0.6);
+  opacity: 0.55;
+}
+
+@keyframes glow-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 168, 83, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(212, 168, 83, 0);
+  }
+}
+
+.biannual-dock-wrap {
+  position: absolute;
+  left: 14px;
+  top: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.biannual-dock-label {
+  font-size: 9px;
+  color: var(--color-ink-faintest);
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  text-orientation: mixed;
+  letter-spacing: 0.05em;
+}
+
+.biannual-dock {
+  background: var(--color-screen);
+  border: 1px solid var(--color-border-softer);
+  border-radius: 22px;
+  padding: 11px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  box-shadow: var(--shadow-dock-soft);
+}
