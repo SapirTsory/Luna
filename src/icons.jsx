@@ -77,3 +77,56 @@ export function DentistIcon(props) {
     </IconBase>
   )
 }
+
+export function ProjectIcon(props) {
+  return (
+    <IconBase {...props}>
+      <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2h8.5A1.5 1.5 0 0 1 21 8.5V17a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17z" />
+    </IconBase>
+  )
+}
+
+export function RecurringIcon(props) {
+  return (
+    <IconBase {...props}>
+      <path d="M4 12a8 8 0 0 1 13.7-5.7L20 8" />
+      <path d="M20 4v4h-4" />
+      <path d="M20 12a8 8 0 0 1-13.7 5.7L4 16" />
+      <path d="M4 20v-4h4" />
+    </IconBase>
+  )
+}
+
+export function TrackingIcon(props) {
+  return (
+    <IconBase {...props}>
+      <path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" />
+      <circle cx="12" cy="12" r="2.6" />
+    </IconBase>
+  )
+}
+
+export function ShoppingIcon(props) {
+  return (
+    <IconBase {...props}>
+      <path d="M4 7h16l-1.5 10.5a2 2 0 0 1-2 1.5H7.5a2 2 0 0 1-2-1.5z" />
+      <path d="M8.5 7V6a3.5 3.5 0 0 1 7 0v1" />
+    </IconBase>
+  )
+}
+
+export function CheckboxIcon(props) {
+  return (
+    <IconBase {...props}>
+      <rect x="4" y="4" width="16" height="16" rx="4" />
+    </IconBase>
+  )
+}
+
+export function OnceTaskIcon(props) {
+  return (
+    <IconBase {...props}>
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.8 2.8M15.2 15.2 18 18M18 6l-2.8 2.8M8.8 15.2 6 18" />
+    </IconBase>
+  )
+}
