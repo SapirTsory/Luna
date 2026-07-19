@@ -72,6 +72,12 @@ button{font-family:inherit;}
 .chip.active{background:var(--accent);color:var(--screen);}
 
 .home-avatar{position:absolute;left:20px;bottom:20px;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--screen);border:none;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;box-shadow:var(--shadow-soft);cursor:pointer;}
+.zone-divider{height:1px;background:var(--accent-bg);margin:22px 24px 14px;}
+.task-caption{flex:none;font-family:'Frank Ruhl Libre',serif;font-size:15px;font-weight:600;color:var(--ink);padding:0 24px 10px;}
+.task-preview{flex:none;display:flex;flex-direction:column;gap:8px;padding:0 24px 90px;}
+.item-card{display:flex;align-items:flex-start;gap:10px;background:var(--card);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow-soft);}
+.item-marker{flex:none;width:7px;height:7px;border-radius:2px;margin-top:7px;background:var(--accent);}
+.item-text{font-size:13.5px;color:var(--ink);line-height:1.35;}
 @media (prefers-color-scheme: dark){.home-avatar{background:var(--card);}}
 :root[data-theme="dark"] .home-avatar{background:var(--card);}
 </style>
@@ -95,6 +101,13 @@ button{font-family:inherit;}
       <button class="chip">על מה אני עדיין מחכה לתשובה?</button>
       <button class="chip">למי אני צריכה לחזור?</button>
       <button class="chip">מה שלחתי ללונה היום?</button>
+    </div>
+    <div class="zone-divider"></div>
+    <div class="task-caption">המשימות שלך</div>
+    <div class="task-preview">
+      <div class="item-card"><span class="item-marker"></span><div class="item-text">להזמין תור לשיננית</div></div>
+      <div class="item-card"><span class="item-marker"></span><div class="item-text">לשלוח למאיה את הכתובת</div></div>
+      <div class="item-card"><span class="item-marker"></span><div class="item-text">לקנות מגבות חדשות</div></div>
     </div>
     <button class="home-avatar" id="homeAvatar" aria-label="פרופיל">N</button>
   </main>

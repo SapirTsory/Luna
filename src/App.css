@@ -69,13 +69,107 @@
   color: var(--color-accent);
 }
 
-.luna-title {
-  margin: 0;
+/* ---------- greeting ---------- */
+
+.greeting {
   text-align: center;
+}
+
+.greeting__title {
+  margin: 0 0 6px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.3;
+  color: var(--color-ink);
+}
+
+.greeting__name {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.greeting__tag {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-ink-faint);
+}
+
+/* ---------- ask bar ---------- */
+
+.askbar {
+  background: #fff;
+  border-radius: 100px;
+  padding: 13px 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-card);
+  font-size: 13px;
+  color: var(--color-ink-faint);
+}
+
+.askbar__spark {
+  color: var(--color-accent);
+  font-size: 14px;
+  flex: none;
+  margin-inline-start: auto;
+}
+
+/* ---------- question chips ---------- */
+
+.chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.chip {
+  border: none;
+  cursor: pointer;
+  background: var(--color-chip-bg);
+  color: var(--color-chip-ink);
+  font-family: inherit;
+  font-size: 13px;
+  border-radius: 100px;
+  padding: 11px 16px;
+  line-height: 1.25;
+  transition: transform 0.12s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+}
+
+.chip--active {
+  background: var(--color-accent);
+  color: var(--color-screen);
+}
+
+.zone-divider {
+  height: 1px;
+  background: var(--color-divider);
+  margin: 4px 4px 0;
+}
+
+.home-avatar {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  color: var(--color-screen);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 700;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
 }
 
 /* ---------- sections ---------- */
@@ -205,7 +299,7 @@
 .rhythm-dock {
   position: absolute;
   left: 14px;
-  top: 150px;
+  top: 560px;
   background: var(--color-screen);
   border: 1px solid var(--color-border-soft);
   border-radius: 26px;
@@ -295,7 +389,7 @@
 .biannual-dock-wrap {
   position: absolute;
   left: 14px;
-  top: 460px;
+  top: 850px;
   display: flex;
   flex-direction: column;
   align-items: center;

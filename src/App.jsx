@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 import {
   CleaningIcon,
@@ -8,6 +9,30 @@ import {
   AcFilterIcon,
   DentistIcon,
 } from './icons.jsx'
+
+const USER_NAME = 'גל'
+
+const QUESTIONS = [
+  'מה חשוב השבוע?',
+  'מה מחכה לי מחר?',
+  'יש לי כמה דקות. מה כדאי לי לעשות?',
+  'אני בקניות. מה חסר לי?',
+  'יש לי חצי שעה. מה כדאי לי לקדם?',
+  'מה הכי דחוף עכשיו?',
+  'על מה אני עדיין מחכה לתשובה?',
+  'למי אני צריכה לחזור?',
+  'מה שלחתי ללונה היום?',
+]
+
+function getGreeting() {
+  const hour = new Date().getHours()
+  if (hour < 5) return 'לילה טוב'
+  if (hour < 12) return 'בוקר טוב'
+  if (hour < 16) return 'צהריים טובים'
+  if (hour < 18) return 'אחר הצהריים טובים'
+  if (hour < 22) return 'ערב טוב'
+  return 'לילה טוב'
+}
 
 const householdItems = [
   { id: 'cleaning', label: 'ניקוי שירותים — עולה היום', status: 'urgent', size: 'xl', Icon: CleaningIcon },
@@ -116,6 +141,24 @@ function MutedReminder({ text }) {
   )
 }
 
+function QuestionChips() {
+  const [active, setActive] = useState(null)
+  return (
+    <div className="chips-row">
+      {QUESTIONS.map((question) => (
+        <button
+          key={question}
+          type="button"
+          className={`chip${active === question ? ' chip--active' : ''}`}
+          onClick={() => setActive((current) => (current === question ? null : question))}
+        >
+          {question}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 export default function App() {
   return (
     <div className="app-shell">
@@ -128,7 +171,21 @@ export default function App() {
             <span className="luna-wordmark">L U N A</span>
           </header>
 
-          <h1 className="luna-title">מה שאני זוכרת בשבילך</h1>
+          <div className="greeting">
+            <h1 className="greeting__title">
+              {getGreeting()}, <span className="greeting__name">{USER_NAME}</span>
+            </h1>
+            <p className="greeting__tag">כל מה שמסתובב לך בראש, במקום אחד</p>
+          </div>
+
+          <div className="askbar">
+            <span>מה שאת רוצה לדעת...</span>
+            <span className="askbar__spark" aria-hidden="true">✦</span>
+          </div>
+
+          <QuestionChips />
+
+          <div className="zone-divider" />
 
           <section className="luna-section" aria-labelledby="today-label">
             <h2 id="today-label" className="luna-section-label luna-section-label--accent">
@@ -155,6 +212,9 @@ export default function App() {
 
         <RhythmDock />
         <BiannualDock />
+        <button type="button" className="home-avatar" aria-label="פרופיל">
+          {USER_NAME[0]}
+        </button>
       </main>
     </div>
   )
